@@ -153,6 +153,9 @@ def profile_view(request):
 
 @login_required
 def create_article(request):
+    """Function allows an authenticated
+    journalist to create an article or
+    newsletter and submit for review."""
     if (not request.user.is_authenticated or
        request.user.role != CustomUser.JOURNALIST):
         return redirect('profile')
@@ -173,6 +176,9 @@ def create_article(request):
 
 @login_required
 def edit_article(request, article_id, article_slug):
+    """This method will allow an authenicated
+    journalist to edit their articles, including
+    title and body text."""
     article = get_object_or_404(Article, pk=article_id, slug=article_slug)
 
     if (request.user.role == CustomUser.JOURNALIST and
@@ -202,6 +208,9 @@ def edit_article(request, article_id, article_slug):
 
 
 def delete_article(request, article_id, article_slug):
+    """This function removes an article. Must be
+    done by an authenticated journalist who
+    is attached to that article."""
     article = get_object_or_404(Article, pk=article_id, slug=article_slug)
 
     if article.posted_by != request.user:
