@@ -1,0 +1,28 @@
+{% load static %}
+{% block content %}
+<div class="editor-page">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<div>
+    <h1>Indie-Go welcomes {{ user.username }}, Editor</h1>
+</div>
+
+<h2>Pending Articles</h2>
+<ul>
+  {% for article in pending_articles %}
+    <li><a href="{% url 'approve_article' article.id %}">{{ article.title }}</a>
+        <a href="{% url 'edit_article' article.id article.slug %}">Edit</a>
+    </li>
+  {% empty %}
+    <li>No articles need review.</li>
+  {% endfor %}
+</ul>
+<form action="{% url 'home' %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Main Page</button>
+</form>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+</div>
+{% endblock %}

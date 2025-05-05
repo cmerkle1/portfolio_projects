@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indie-go News</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <!-- Banner -->
+    <div id="banner">
+        <h1>Indie-Go News</h1>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav id="nav">
+        <form action="{% url 'register' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Register</button>
+        </form>
+        {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Sign Out</button>
+        </form>        
+        
+        <form action="{% url 'profile' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Profile</button>
+        </form>  
+        {% else %}
+            <a href="{% url 'login' %}">Sign In</a>
+        {% endif %}
+    </nav>
+
+    <!-- Article Tiles -->
+    <main id="articles">
+
+        <div class="filter">
+            <form method="get" action="{% url 'home' %}">
+                <label for="publisher">Filter by Publisher</label>
+                <select name="publisher" id="publisher" class="form-control">
+                    <option value="">All Publishers</option>
+                    {% for pub in publishers %}
+                        <option value="{{ pub.id }}" {% if pub.id == selected_publisher_id %}selected{% endif %}>{{ pub.name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+            
+        <!-- Article Tiles -->
+        {% for article in articles %}
+            <div class="article-tile">
+                <a href="{% url 'article_detail' article.pk article.slug %}">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.content|truncatechars:150 }}</p>
+                </a>
+                <p class="author">
+                    By {{ article.posted_by.username }}
+                    {% if user.is_authenticated and user.role == "Reader" %}
+                        |
+                        <form action="{% url 'subscribe' article.posted_by.id %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    {% endif %}
+                </p>
+            </div>
+        {% endfor %}
+    
+    </main>
+
+</body>
+</html>

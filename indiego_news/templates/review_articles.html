@@ -1,0 +1,18 @@
+<h1>Pending Articles</h1>
+<ul>
+  {% for article in articles %}
+    <li>
+      <strong>{{ article.title }}</strong> by {{ article.posted_by.username }}
+      <br>
+      <a href="{% url 'approve_article' article.id %}">Approve</a>
+    </li>
+  {% empty %}
+    <li>No articles to review.</li>
+  {% endfor %}
+  <form method="post" action="{% url 'home' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Home</button>
+</form>
+</ul>

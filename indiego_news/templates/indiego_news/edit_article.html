@@ -1,0 +1,17 @@
+{% block content %}
+  <h1>Edit Article: {{ article.title }}</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+
+    {% if is_editor %}
+      <button type="submit" name="approve" value="true">Approve</button>
+    {% endif %}
+  </form>
+
+  <a href="{% url 'profile' %}">
+    <button type="button">Return to Profile</button>
+  </a>
+{% endblock %}

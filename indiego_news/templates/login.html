@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In - Indiego News</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="login-page">
+
+    <h1>Sign In to Indiego News</h1>
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Sign In</button>
+    </form>
+
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+
+</body>
+</html>

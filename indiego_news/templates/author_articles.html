@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Articles by {{ author.username }}</title>
+</head>
+<body>
+
+    <h1>Articles by {{ author.username }}</h1>
+
+    {% if articles %}
+        <ul>
+        {% for article in articles %}
+            <li>
+                <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No articles found.</p>
+    {% endif %}
+
+    <form action="{% url 'home' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">Main Page</button>
+    </form>
+
+    <form action="{% url 'profile' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">Profile</button>
+    </form>
+
+</body>
+</html>

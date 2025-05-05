@@ -1,0 +1,9 @@
+<!-- indiego_news/templates/indiego_news/article_detail.html -->
+
+{% block content %}
+  <h1>{{ article.title }}</h1>
+  <p><strong>By:</strong> {{ article.posted_by }}</p>
+  <p><strong>Type:</strong> {{ article.article_type }}</p>
+  <p>{{ article.content }}</p>
+  <p><em>Created on: {{ article.created_at }}</em></p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% load static %}
+{% block content %}
+<div class="journalist-page">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<h1>Welcome, {{ user.username }}!</h1>
+
+<h2>My Submitted Articles</h2>
+<ul>
+  {% for article in my_articles %}
+    <li>
+      <a href="{% url 'article_detail' pk=article.pk slug=article.slug %}">
+        {{ article.title }}
+      </a> – {{ article.get_type_display }} – {{ article.created_at|date:"d M Y" }}
+      <a href="{% url 'edit_article' article.id article.slug %}">Edit</a> | 
+  <a href="{% url 'delete_article' article.id article.slug %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No articles submitted yet.</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'create_article' %}" class="btn btn-primary mt-3">Create New Article</a>
+
+
+<form action="{% url 'home' %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Main Page</button>
+</form>
+
+<form method="post" action="{% url 'logout' %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Logout</button>
+  </form>
+</div>
+{% endblock %}

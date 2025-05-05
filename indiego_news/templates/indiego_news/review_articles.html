@@ -1,0 +1,6 @@
+<h1>Articles Waiting for Approval</h1>
+<ul>
+    {% for article in articles %}
+        <li><a href="{% url 'approve_article' article.id %}">{{ article.title }}</a></li>
+    {% endfor %}
+</ul>

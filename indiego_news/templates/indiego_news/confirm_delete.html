@@ -1,0 +1,11 @@
+<!-- indiego_news/templates/indiego_news/confirm_delete.html -->
+
+{% block content %}
+  <h1>Are you sure you want to delete this article?</h1>
+  <p>Title: {{ article.title }}</p>
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+  </form>
+  <a href="{% url 'article_detail' article.id article.slug %}">Cancel</a>
+{% endblock %}

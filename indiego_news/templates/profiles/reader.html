@@ -1,0 +1,44 @@
+{% load static %}
+{% block content %}
+<div class="reader-page">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <div id="banner">
+        <h1>Your Profile</h1>
+    </div>
+
+    <h2>Your Subscriptions</h2>
+    <ul>
+      {% for sub in subscriptions %}
+        <li>
+            {% if sub.publisher %}
+                <a href="{% url 'author_articles' sub.publisher.id %}">{{ sub.publisher.name }}</a>
+            {% elif sub.journalist %}
+                <a href="{% url 'author_articles' sub.journalist.id %}">{{ sub.journalist.username }}</a>
+            {% endif %}
+        </li>
+      {% empty %}
+        <li>You have no subscriptions.</li>
+      {% endfor %}
+    </ul>
+
+    <form action="{% url 'home' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">Main Page</button>
+    </form>
+
+    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+
+</body>
+</html>
+{% endblock %}
