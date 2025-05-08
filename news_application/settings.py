@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'indiego_news',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 SITE_ID = 1
@@ -86,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'news_db',
         'USER': 'news_user',
-        'PASSWORD': 'your_strong_password',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
@@ -153,3 +155,12 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
 SESSION_COOKIE_SECURE = False
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}

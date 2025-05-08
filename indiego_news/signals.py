@@ -37,7 +37,6 @@ def article_approved(sender, instance, created, **kwargs):
         f"{reverse('article_detail', args=[instance.pk, instance.slug])}"
     )
 
-    # Twitter posting
     try:
         auth = tweepy.OAuth1UserHandler(
             settings.TWITTER_API_KEY,

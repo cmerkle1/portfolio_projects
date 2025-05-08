@@ -9,6 +9,14 @@ from .forms import CustomUserCreationForm, ArticleForm
 from .models import Article, Subscription, CustomUser, Publisher
 import tweepy
 from decouple import config
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import viewsets, status
+from rest_framework.permissions import IsAuthenticated
+from .serializers import UserSerializer, PublisherSerializer, ArticleSerializer, SubscriptionSerializer
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 
 def is_editor(user):
@@ -82,20 +90,27 @@ def article_detail(request, pk, slug):
         return render(request, 'indiego_news/article_detail.html',
                       {'article': article})
 
-    return render(request, '403.html', status=403)
+    if not article.approved and not request.user.is_staff:
+        return render(request, '403.html', status=403)
+
+    return render(request, 'article_detail.html', {'article': article})
 
 
 def homepage(request):
     """View to display the homepage with articles
     filtered and sorted by publisher."""
     publishers = Publisher.objects.all()
-    selected_publisher_id = request.GET.get('publisher', None)
+    selected_publisher_id = request.GET.get('publisher')
+    try:
+        selected_publisher_id = int(selected_publisher_id)
+    except (TypeError, ValueError):
+        selected_publisher_id = None
     publisher = None
 
     if selected_publisher_id:
         publisher = Publisher.objects.get(id=selected_publisher_id)
 
-    articles = Article.objects.all()
+    articles = Article.objects.filter(approved=True)
 
     if publisher:
         articles = articles.filter(posted_by__publisher=publisher)
@@ -153,9 +168,6 @@ def profile_view(request):
 
 @login_required
 def create_article(request):
-    """Function allows an authenticated
-    journalist to create an article or
-    newsletter and submit for review."""
     if (not request.user.is_authenticated or
        request.user.role != CustomUser.JOURNALIST):
         return redirect('profile')
@@ -176,9 +188,6 @@ def create_article(request):
 
 @login_required
 def edit_article(request, article_id, article_slug):
-    """This method will allow an authenicated
-    journalist to edit their articles, including
-    title and body text."""
     article = get_object_or_404(Article, pk=article_id, slug=article_slug)
 
     if (request.user.role == CustomUser.JOURNALIST and
@@ -208,12 +217,9 @@ def edit_article(request, article_id, article_slug):
 
 
 def delete_article(request, article_id, article_slug):
-    """This function removes an article. Must be
-    done by an authenticated journalist who
-    is attached to that article."""
     article = get_object_or_404(Article, pk=article_id, slug=article_slug)
 
-    if article.posted_by != request.user:
+    if request.user != article.posted_by and request.user.role != CustomUser.EDITOR:
         return redirect('profile')
 
     if request.method == 'POST':
@@ -226,6 +232,7 @@ def delete_article(request, article_id, article_slug):
           )
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CustomLoginView(LoginView):
     template_name = 'login.html'
     authentication_form = AuthenticationForm
@@ -278,11 +285,21 @@ def subscribe(request, id):
 
 
 def author_articles(request, author_id):
-    author = get_object_or_404(CustomUser, id=author_id)
+    author = CustomUser.objects.filter(id=author_id, role=CustomUser.JOURNALIST).first()
 
-    articles = Article.objects.filter(posted_by=author)
+    if author:
+        articles = Article.objects.filter(posted_by=author, approved=True)
+        author_name = author.username
+    else:
+        publisher = get_object_or_404(Publisher, id=author_id)
+        journalists = publisher.journalists.all()
+        articles = Article.objects.filter(posted_by__in=journalists, approved=True)
+        author_name = publisher.name
 
-    return render(request, 'author_articles.html', {'author': author, 'articles': articles})
+    return render(request, 'author_articles.html', {
+        'articles': articles,
+        'author_name': author_name,
+    })
 
 
 class PublisherSelectionForm(forms.ModelForm):
@@ -321,3 +338,63 @@ def update_publisher(request):
         form = PublisherSelectionForm(instance=user)
 
     return render(request, 'profiles/update_publisher.html', {'form': form})
+
+
+class PublisherViewSet(viewsets.ModelViewSet):
+    queryset = Publisher.objects.all()
+    serializer_class = PublisherSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class SubscriptionViewSet(viewsets.ModelViewSet):
+    queryset = Subscription.objects.all()
+    serializer_class = SubscriptionSerializer
+    permission_classes = [IsAuthenticated]
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def api_get_articles(request, journalist_id=None, publisher_id=None):
+    if journalist_id:
+        articles = Article.objects.filter(journalist_id=journalist_id)
+    elif publisher_id:
+        articles = Article.objects.filter(publisher_id=publisher_id)
+    else:
+        return Response({"detail": "Either journalist_id or publisher_id must be provided."},
+                        status=status.HTTP_400_BAD_REQUEST)
+
+    serializer = ArticleSerializer(articles, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_subscribe(request):
+    user = request.user
+    journalist_id = request.data.get('journalist_id')
+    publisher_id = request.data.get('publisher_id')
+
+    if not journalist_id and not publisher_id:
+        return Response({"detail": "Either journalist_id or publisher_id must be provided."},
+                        status=status.HTTP_400_BAD_REQUEST)
+
+    if journalist_id:
+        journalist = get_object_or_404(CustomUser, id=journalist_id, role='journalist')
+        if Subscription.objects.filter(subscriber=user, journalist=journalist).exists():
+            return Response({"detail": "Already subscribed to this journalist."},
+                            status=status.HTTP_400_BAD_REQUEST)
+        Subscription.objects.create(subscriber=user, journalist=journalist)
+    elif publisher_id:
+        publisher = get_object_or_404(Publisher, id=publisher_id)
+        if Subscription.objects.filter(subscriber=user, publisher=publisher).exists():
+            return Response({"detail": "Already subscribed to this publisher."},
+                            status=status.HTTP_400_BAD_REQUEST)
+        Subscription.objects.create(subscriber=user, publisher=publisher)
+
+    return Response({"detail": "Subscribed successfully!"}, status=status.HTTP_201_CREATED)

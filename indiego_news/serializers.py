@@ -1,23 +1,34 @@
-# shopping_app/serializers.py
-
 from rest_framework import serializers
-from .models import Store, Item, Review
+from .models import CustomUser, Publisher, Article, Subscription
 
 
-class StoreSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Store
-        fields = ['id', 'name', 'seller']
-        read_only_fields = ['seller']
+        model = CustomUser
+        fields = ['id', 'username', 'email', 'role']
 
 
-class ItemSerializer(serializers.ModelSerializer):
+class PublisherSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Item
-        fields = ['id', 'store', 'name', 'description', 'price', 'image']
+        model = Publisher
+        fields = ['id', 'name']
 
 
-class ReviewSerializer(serializers.ModelSerializer):
+class ArticleSerializer(serializers.ModelSerializer):
+    posted_by = serializers.StringRelatedField()
+    reviewed = serializers.StringRelatedField()
+
     class Meta:
-        model = Review
-        fields = ['id', 'item', 'user', 'rating', 'comment']
+        model = Article
+        fields = ['id', 'title', 'slug', 'content', 'approved', 'created_at',
+                  'type', 'posted_by', 'reviewed']
+
+
+class SubscriptionSerializer(serializers.ModelSerializer):
+    subscriber = serializers.StringRelatedField()
+    publisher = serializers.StringRelatedField()
+    journalist = serializers.StringRelatedField()
+
+    class Meta:
+        model = Subscription
+        fields = ['id', 'subscriber', 'publisher', 'journalist']

@@ -1,6 +1,7 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth.views import LogoutView
+from rest_framework.routers import DefaultRouter
 from indiego_news.views import(
     review_articles,
     approve_article,
@@ -15,8 +16,15 @@ from indiego_news.views import(
     subscribe,
     author_articles,
     update_publisher,
+    PublisherViewSet,
+    ArticleViewSet,
+    SubscriptionViewSet,
 )
 
+router = DefaultRouter()
+router.register(r'publishers', PublisherViewSet)
+router.register(r'articles', ArticleViewSet)
+router.register(r'subscriptions', SubscriptionViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,12 +39,13 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='home'), name='logout'),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('create/', create_article, name='create_article'),
-    path('articles/<int:article_id>/<slug:article_slug>/edit/',
-         edit_article, name='edit_article'),
+    path('articles/<int:article_id>/<slug:article_slug>/edit/', edit_article,
+         name='edit_article'),
     path('articles/<int:article_id>/<slug:article_slug>/delete/',
          delete_article, name='delete_article'),
     path('subscribe/<int:id>/', subscribe, name='subscribe'),
     path('author/<int:author_id>/articles/', author_articles,
          name='author_articles'),
     path('update-publisher/', update_publisher, name='update_publisher'),
+    path('api/', include(router.urls)),
 ]
