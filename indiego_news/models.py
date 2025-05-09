@@ -61,17 +61,13 @@ class CustomUser(AbstractUser, models.Model):
         Publisher, null=True, blank=True, on_delete=models.SET_NULL,
         related_name='users'
         )
-    
+
     @property
     def is_reader(self):
-        return self.role == 'reader'
+        return self.role == 'Reader'
 
     def __str__(self):
         return f"{self.username} ({self.get_role_display()})"
-
-    @property
-    def is_reader(self):
-        return self.role == self.READER
 
     @property
     def is_editor(self):

@@ -1,0 +1,91 @@
+body {
+    font-family: Garamond, sans-serif;
+    background-image: url('https://morguefile.nyc3.cdn.digitaloceanspaces.com/imageData/public/files/h/HelloBob/09/l/1441559275oq1x5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: #333;
+
+}
+
+#banner {
+    background-color: #380070;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#nav {
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+
+#nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #003366;
+}
+
+.article-tile {
+    background-color: white;
+    border: 1px solid #ccc;
+    margin: 15px auto;
+    padding: 15px;
+    max-width: 600px;
+}
+
+.login-page {
+    background-image: url('https://morguefile.nyc3.cdn.digitaloceanspaces.com/imageData/public/files/h/HelloBob/09/l/1441559275oq1x5.jpg'); /* or change it */
+    color: #ccccccee; 
+}
+
+.login-page h1,
+.login-page label,
+.login-page p,
+.login-page a {
+    color: #ccc;
+}
+
+.login-page input {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #aaa;
+    padding: 8px;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px 0;
+}
+
+.login-page form {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    max-width: 500px;
+    margin: 30px auto;
+    border-radius: 8px;
+}
+
+.journalist-page {
+    color: #909090f7;
+}
+
+.journalist-page a {
+    color: #ddd;
+}
+
+.editor-page {
+    color: #d293ff;
+}
+
+.editor-page a {
+    color: #fefeff;
+}
+
+.reader-page {
+    color: #6861af;
+}
+
+.reader-page a {
+    color: #fefeff;
+}
