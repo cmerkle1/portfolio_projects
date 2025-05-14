@@ -1,0 +1,16 @@
+<!-- notes/templates/notes/note_list.html -->
+
+{% extends 'base.html' %}
+
+{% block title %} All Sticky Notes {% endblock %}
+
+{% block content %}
+<div class="note-container">
+  {% for note in notes %}
+    <div class="note">
+      <a href="{% url 'note_detail' pk=note.pk %}"><h2>{{ note.title }}</h2></a>
+      <p>{{ note.content }}</p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
