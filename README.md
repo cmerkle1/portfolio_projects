@@ -48,9 +48,9 @@
 
 ### Built With
 
-* [![Python][Python-shield][Python-url]
-* [![Django][Django-shield][Django-url]]
-* [![Bootstrap][Bootstrap-shield][Bootstrap-url]]
+* [![Python][Python-shield]][Python-url]
+* [![Django][Django-shield]][Django-url]
+* [![Bootstrap][Bootstrap-shield]][Bootstrap-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
