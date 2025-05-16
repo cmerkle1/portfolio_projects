@@ -50,7 +50,7 @@
 
 * [![Python][python-url]]
 * [![Django][django-url]]
-* [![Bootstrap][bootstrap.com][bootstrap-url]]
+* [![Bootstrap][Bootstrap.com][Bootstrap-url]]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
