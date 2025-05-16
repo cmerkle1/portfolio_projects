@@ -48,9 +48,9 @@
 
 ### Built With
 
-* [![Python][python-url]]
-* [![Django][django-url]]
-* [![Bootstrap][Bootstrap.com][Bootstrap-url]]
+* [![Python][Python-shield][Python-url]
+* [![Django][Django-shield][Django-url]]
+* [![Bootstrap][Bootstrap-shield][Bootstrap-url]]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -74,7 +74,9 @@ Project Link: [https://github.com/cmerkle1/portfolio_projects](https://github.co
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[python-url]: https://www.python.org/
-[django-url]: https://www.djangoproject.com/
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Python-url]: https://www.python.org/
+[Python-shield]: https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+[Django-url]: https://www.djangoproject.com/
+[Django-shield]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
+[Bootstrap-shield]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
