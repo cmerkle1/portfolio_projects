@@ -21,7 +21,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Projects
 
 * **Sticky Notes**:
    This project is a CRUD application that allows the user to create virtual 'sticky notes'
