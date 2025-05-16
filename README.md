@@ -23,19 +23,19 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-* Sticky Notes
+* **Sticky Notes**:
    This project is a CRUD application that allows the user to create virtual 'sticky notes'
     which can be edited, deleted, and read. The webpage is designed to look like a conference
     room whiteboard.
 
-* E-Commerce Site
+* **E-Commerce Site**:
    This project features an online marketplace where users can register as either a buyer or
     a seller, utilizing various API endpoints. Items can be posted and made available for
     purchase, edited, and deleted by the seller. Buyers can leave verified reviews on items
     they have purchased, or unverified reviews on all other items. Buyers receive an email invoice
     after making a purchase.
 
-* News Application
+* **News Application**:
    This project is a news app that allows users to register as either a reader, editor, or
     journalist. Readers can subscribe to their favorite journalists or publishers to receive
     emails when a new article is posted. Journalists create and post articles to be reviewed
