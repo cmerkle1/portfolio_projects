@@ -60,6 +60,9 @@
 Each project contains a README file that explains how to install and run it as well as a requirements.txt file.
 Please download and extract the project files to find the README with more specifics related to that project.
 
+To access README files:
+- Sticky Notes:  sticky_notes > docs > _build > README
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
