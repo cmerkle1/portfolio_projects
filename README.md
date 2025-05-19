@@ -3,7 +3,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#projects">Projects in this Repo</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -20,8 +20,8 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Projects
+<!-- Projects -->
+## Projects
 
 * **Sticky Notes**:
    This project is a CRUD application that allows the user to create virtual 'sticky notes'
@@ -65,7 +65,7 @@ Please download and extract the project files to find the README with more speci
 <!-- CONTACT -->
 ## Contact
 
-Cady Merkle - - mcmerkle@gmail.com
+Cady Merkle - mcmerkle@gmail.com
 
 Project Link: [https://github.com/cmerkle1/portfolio_projects](https://github.com/cmerkle1/portfolio_projects)
 
