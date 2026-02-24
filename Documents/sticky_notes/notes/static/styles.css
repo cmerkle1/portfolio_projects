@@ -1,0 +1,214 @@
+/* styles.css */
+
+body {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
+  margin: 0;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/f6/Whiteboard_with_markers.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+header {
+  background-color: #f5eb7cc7;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.header-title {
+  margin: 0;
+}
+
+.header-button {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.note-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.note {
+  background-image: url("https://cdn.pixabay.com/photo/2013/07/12/14/11/note-147951_1280.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 220px;
+  padding: 30px 20px 20px 20px;
+  color: #000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  font-size: 4vw;
+  line-height: 1.2;
+}
+
+.note h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.note p {
+  margin: 10px 0 0;
+  font-size: 3.5vw;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #0000003d;
+  color: white;
+  padding: 5px;
+  text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .note-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .note {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .note-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .note {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .note-container {
+    grid-template-columns: 1fr;
+  }
+  .note {
+    height: 100px;
+  }
+  .note p {
+    font-size: 6vw;
+  }
+}
+
+.add-note-button {
+  display: inline-block;
+  background-color: #f5eb7c;
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px 0;
+}
+
+.add-note-button:hover {
+  background-color: #e4d75a;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffffa8;
+  border-radius: 10px;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.note-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.note-detail {
+  background-image: url("https://cdn.pixabay.com/photo/2013/07/12/14/11/note-147951_1280.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 300px;
+  height: 300px;
+  padding: 40px 20px;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note-actions a {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 12px;
+  background-color: #f5eb7c;
+  color: black;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.note-actions a:hover {
+  background-color: #e4d75a;
+}
