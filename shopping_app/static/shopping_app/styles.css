@@ -1,0 +1,494 @@
+/* shopping_app/static/styles.css */
+/* Used an easy-to-read and kid friendly font for the site*/
+body {
+    background: url('https://st.depositphotos.com/1828227/1853/v/450/depositphotos_18534541-stock-illustration-kids-playing-seamless-pattern-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Comic Sans MS', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #fce4ec;
+    border-bottom: 4px solid #f8bbd0;
+}
+
+.site-header h1 {
+    font-family: 'Chewy', cursive;
+    color: #ff4081;
+    font-size: 48px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+nav {
+    text-align: center;
+    margin: 15px 0;
+}
+
+nav a,
+nav button {
+    background-color: #ff80ab;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+}
+
+nav a:hover,
+nav button:hover {
+    background-color: #f06292;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fce4ec;
+    color: #777;
+    font-size: 14px;
+}
+
+.item {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f8bbd0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.item h3 {
+    color: #ff4081;
+    font-size: 24px;
+}
+
+.item p {
+    color: #333;
+}
+
+.item img {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+button[type="submit"] {
+    background-color: #ff80ab;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #f06292;
+}
+
+.logout-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for navigation links */
+nav ul.nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav ul.nav-links li {
+    margin-right: 15px; /* Add some space between the buttons */
+  }
+  
+  nav ul.nav-links li a,
+  nav ul.nav-links li form button {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    background-color: #6d85c7;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  nav ul.nav-links li a:hover,
+  nav ul.nav-links li form button:hover {
+    background-color: #0056b3; 
+  }
+
+  /* Added different headers for sellers and buyers */
+.seller-header{
+    background-color: #a51c4a;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.buyer-header{
+    background-color: #7d95be;
+    color: #333;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* ===== Registration Page ===== */
+
+.register-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.register-title {
+    text-align: center;
+    color: #ff4081;
+    font-family: 'Chewy', cursive;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.register-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form .form-group label {
+    font-weight: bold;
+    color: #c2185b;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.register-form .form-group input,
+.register-form .form-group select {
+    padding: 12px 14px;
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff0f5;
+}
+
+.register-form .form-group input:focus,
+.register-form .form-group select:focus {
+    border-color: #ff4081;
+    box-shadow: 0 0 8px rgba(255, 64, 129, 0.35);
+}
+
+.register-form button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    font-family: 'Chewy', cursive;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+.register-form button[type="submit"]:hover {
+    background-color: #f06292;
+    transform: scale(1.03);
+}
+
+.form-errors {
+    margin-top: 20px;
+    background-color: #fce4ec;
+    border: 2px solid #f06292;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+
+.form-errors ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-errors li {
+    color: #c62828;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+/* ===== Shared Form Styles (Item Form, Register, etc.) ===== */
+
+.form-container {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.form-title {
+    text-align: center;
+    color: #ff4081;
+    font-family: 'Chewy', cursive;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.styled-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.styled-form .form-group label {
+    font-weight: bold;
+    color: #c2185b;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.styled-form .form-group input[type="text"],
+.styled-form .form-group input[type="number"],
+.styled-form .form-group input[type="email"],
+.styled-form .form-group input[type="password"],
+.styled-form .form-group textarea,
+.styled-form .form-group select {
+    padding: 12px 14px;
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 15px;
+    outline: none;
+    background-color: #fff0f5;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.styled-form .form-group input:focus,
+.styled-form .form-group textarea:focus,
+.styled-form .form-group select:focus {
+    border-color: #ff4081;
+    box-shadow: 0 0 8px rgba(255, 64, 129, 0.35);
+}
+
+.styled-form .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Checkbox row (e.g., Available) */
+.styled-form .checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.styled-form .checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #ff4081;
+    cursor: pointer;
+}
+
+.styled-form .checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+/* File upload */
+.styled-form .file-group input[type="file"] {
+    padding: 10px;
+    border: 2px dashed #f8bbd0;
+    border-radius: 10px;
+    background-color: #fff0f5;
+    font-family: 'Comic Sans MS', cursive;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.styled-form .file-group input[type="file"]:hover {
+    border-color: #ff4081;
+}
+
+.styled-form button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    font-family: 'Chewy', cursive;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    background-color: #ff80ab;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+.styled-form button[type="submit"]:hover {
+    background-color: #f06292;
+    transform: scale(1.03);
+}
+
+/* ===== Store Page ===== */
+
+.store-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px dashed #f8bbd0;
+}
+
+.store-title {
+    font-family: 'Chewy', cursive;
+    color: #ff4081;
+    font-size: 36px;
+    margin: 0 0 10px 0;
+}
+
+.store-welcome {
+    color: #777;
+    font-size: 16px;
+    margin: 0;
+}
+
+.section-title {
+    font-family: 'Chewy', cursive;
+    color: #c2185b;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.store-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.item {
+    margin-bottom: 0;
+    padding: 20px;
+    background-color: #f8bbd0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.item h3 {
+    color: #ff4081;
+    font-size: 22px;
+    font-family: 'Chewy', cursive;
+    margin-top: 10px;
+}
+
+.item p {
+    color: #333;
+    font-size: 14px;
+}
+
+.item-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c2185b;
+    margin: 10px 0;
+}
+
+.item img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 10px;
+    border: 3px solid white;
+}
+
+/* Action buttons */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Comic Sans MS', cursive;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-edit {
+    background-color: #ffe082;
+    color: #333;
+}
+
+.btn-edit:hover {
+    background-color: #ffd54f;
+}
+
+.btn-delete {
+    background-color: #ef9a9a;
+    color: #333;
+}
+
+.btn-delete:hover {
+    background-color: #e57373;
+}
+
+.btn-add {
+    background-color: #ff80ab;
+    color: white;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-family: 'Chewy', cursive;
+    border-radius: 10px;
+}
+
+.btn-add:hover {
+    background-color: #f06292;
+}
+
+/* Empty store message */
+.empty-store {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff0f5;
+    border: 2px dashed #f8bbd0;
+    border-radius: 15px;
+}
+
+.empty-store p {
+    font-size: 20px;
+    color: #c2185b;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,24 @@
+<!-- shopping_app/templates/items/view_cart.html -->
+ <!-- html to display the items in cart and their prices -->
+
+{% extends 'shopping_app/base.html' %}
+
+{% block content %}
+<h1>Your Cart</h1>
+
+<p>Welcome, {{ buyer_name }}!</p>
+<h2>Items in your cart:</h2>
+
+<ul>
+    {% for item in cart_items %}
+        <li>{{ item.quantity }}  {{ item.name }} - ${{ item.price }}</li>
+    {% empty %}
+        <li>Your cart is empty.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+
+
+<p>Total: ${{ total }}</p>
+{% endblock %}

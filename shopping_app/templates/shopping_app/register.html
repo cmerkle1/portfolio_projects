@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'shopping_app/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chewy&display=swap">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>🧸 Kids Shopping App 🧸</h1>
+        <nav>
+            <a href="{% url 'login' %}">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="register-container">
+            <h2 class="register-title">📝 Register as a Buyer or Seller</h2>
+
+            <form method="POST" class="register-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="id_username">Username:</label>
+                    {{ form.username }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_email">Email:</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_password">Password:</label>
+                    {{ form.password }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_name">Full Name:</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_user_type">Registering as:</label>
+                    {{ form.user_type }}
+                </div>
+
+                <button type="submit">🎉 Register</button>
+
+                {% if form.errors %}
+                    <div class="form-errors">
+                        <ul>
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li>⚠️ {{ field.label }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>⚠️ {{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- shopping_app/templates/shopping_app/leave_review.html -->
+<!-- Allows user (verified/unverified) to leave product review and rating -->
+
+
+{% extends 'shopping_app/base.html' %}
+
+{% block content %}
+<h2>Leave a Review for {{ item.name }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <label for="id_rating">Rating:</label>
+    <select name="rating" id="id_rating" required>
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+    </select>
+
+    <br><br>
+
+    <label for="id_comment">Comment:</label>
+    {{ form.comment }}
+
+    <br><br>
+
+    <button type="submit">Submit Review</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ store.name }} - Storefront</title>
+    <link rel="stylesheet" href="{% static 'shopping_app/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chewy&display=swap">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>🧸 Kinder Shop 🧸</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'add_item_to_store' %}">Add a New Item</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="store-header">
+            <h2 class="store-title">🏪 {{ store.name }}</h2>
+            <p class="store-welcome">Welcome to your storefront! Manage your items below.</p>
+        </div>
+
+        <h3 class="section-title">🧸 Your Items</h3>
+
+        {% if items %}
+            <div class="store-items">
+                {% for item in items %}
+                    <div class="item">
+                        {% if item.image %}
+                            <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                        {% endif %}
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.description }}</p>
+                        <p class="item-price">💰 ${{ item.price }}</p>
+                        <div class="actions">
+                            <a href="{% url 'item_update' pk=item.id %}" class="btn btn-edit">✏️ Edit</a>
+                            <a href="{% url 'item_delete' item.pk %}" class="btn btn-delete">🗑️ Delete</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-store">
+                <p>You haven't listed any items yet.</p>
+                <a href="{% url 'add_item_to_store' %}" class="btn btn-add">🎨 Add Your First Item!</a>
+            </div>
+        {% endif %}
+    </main>
+
+</body>
+</html>

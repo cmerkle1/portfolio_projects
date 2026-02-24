@@ -1,0 +1,149 @@
+/* shopping_app/static/styles.css */
+body {
+    background: url('https://st.depositphotos.com/1828227/1853/v/450/depositphotos_18534541-stock-illustration-kids-playing-seamless-pattern-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Comic Sans MS', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #fce4ec;
+    border-bottom: 4px solid #f8bbd0;
+}
+
+.site-header h1 {
+    font-family: 'Chewy', cursive;
+    color: #ff4081;
+    font-size: 48px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+nav {
+    text-align: center;
+    margin: 15px 0;
+}
+
+nav a,
+nav button {
+    background-color: #ff80ab;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+}
+
+nav a:hover,
+nav button:hover {
+    background-color: #f06292;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fce4ec;
+    color: #777;
+    font-size: 14px;
+}
+
+.item {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f8bbd0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.item h3 {
+    color: #ff4081;
+    font-size: 24px;
+}
+
+.item p {
+    color: #333;
+}
+
+.item img {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+button[type="submit"] {
+    background-color: #ff80ab;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #f06292;
+}
+
+
+.logout-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for navigation links */
+nav ul.nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav ul.nav-links li {
+    margin-right: 15px; /* Add some space between the buttons */
+  }
+  
+  nav ul.nav-links li a,
+  nav ul.nav-links li form button {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    background-color: #6d85c7;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  nav ul.nav-links li a:hover,
+  nav ul.nav-links li form button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+  }
+
+.seller-header{
+    background-color: #a51c4a;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.buyer-header{
+    background-color: #7d95be;
+    color: #333;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
