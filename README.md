@@ -10,5 +10,5 @@ A full-stack e-commerce app built with Django, MySQL, and Docker.
 ### 📝 [Sticky Notes CRUD App](./sticky_notes)
 A sticky notes board showcasing CRUD.
 
-### :green_salad: [Restaurant Website] (./food_truck)
+### :green_salad: [Restaurant Website] (./foodtruck)
 A restaurant website with access to location, menu, about information, and contact details, built using Django.
