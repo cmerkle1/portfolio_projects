@@ -1,0 +1,15 @@
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+
+# Docker
+*.env
+*.docker
+
+# Git
+.git/
+
+# Compiled static files
+staticfiles/
