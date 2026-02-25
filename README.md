@@ -1,11 +1,12 @@
 ## Instructions
-- python -m venv env
-- source env/bin/activate
-- pip install -r requirements.txt
-- python manage.py migrate
-- python manage.py runserver
 
-#  My Portfolio
+- `python -m venv env`
+- `source env/bin/activate`
+- `pip install -r requirements.txt`
+- `python manage.py migrate`
+- `python manage.py runserver`
+
+# My Portfolio
 
 A collection of projects showcasing full-stack development skills.
 
