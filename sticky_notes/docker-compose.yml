@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: sticky_notes_web
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sticky_notes_docs
+    volumes:
+      - ./docs:/docs
+    command: sphinx-build -b html . _build

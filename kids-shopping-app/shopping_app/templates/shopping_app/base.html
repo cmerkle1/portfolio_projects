@@ -1,0 +1,145 @@
+<!-- shopping_app/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    {% block title %}Kinder Shop{% endblock title %}
+  </title>
+  <link rel="stylesheet" type="text/css" href="{% static 'shopping_app/styles.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+  <style>
+    .seller-header {
+      background-color: #add8e6 !important; /* light blue for seller */
+      color: black;
+    }
+
+    .buyer-header {
+      background-color: #d63384 !important; /* dark pink for buyer */
+      color: white;
+    }
+
+    .site-header {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .site-header a,
+    .site-header button {
+      color: inherit !important;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .site-header .btn {
+      padding: 0.5rem 1rem;
+      background-color: transparent;
+      border: 2px solid currentColor;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .messages {
+      list-style: none;
+      padding: 0;
+      margin: 1rem auto;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .messages li {
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 5px;
+    }
+
+    .messages li.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .messages li.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    .messages li.info {
+      background-color: #cce5ff;
+      color: #004085;
+      border: 1px solid #b8daff;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header {% if user.is_authenticated and user.seller %}seller-header{% else %}buyer-header{% endif %}">
+    <h1>
+      {% block header %}
+        {% if user.is_authenticated and user.seller %}
+          Seller Account – Kinder Shop
+        {% else %}
+          Kinder Shop - The Store for Kids
+        {% endif %}
+      {% endblock header %}
+    </h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li> 
+        {% if user.is_authenticated and user.seller %}
+          <li><a href="{% url 'view_store' user.seller.store.pk %}">Store</a></li>
+        {% endif %}
+        <li><a href="{% url 'view_cart' %}">Cart</a></li>
+        <li><a href="{% url 'register_user' %}">Register</a></li>
+        {% if not user.is_authenticated %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% else %}
+        <form method="POST" action="{% url 'logout' %}" class="d-inline">
+          {% csrf_token %}
+          <button type="submit" class="btn">Logout</button>
+        </form>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% block content %}
+    <section id="featured-items">
+      <h2>Featured Items</h2>
+      {% for item in items %}
+      <div class="item">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <p><strong>Price:</strong> ${{ item.price }}</p>
+        <p><strong>Store:</strong>
+        <a href="{% url 'view_store' store.ids %}">
+          {{ store.name }}
+        </a></p>
+        {% if item.image %}
+          <img src="{{ item.image.url }}" alt="{{ item.name }}" />
+        {% endif %}
+        <form method="POST" action="{% url 'add_to_cart' item.id %}">
+          {% csrf_token %}
+          <button type="submit" name="add_to_cart" value="{{ item.id }}">Add to Cart</button>
+        </form>
+      </div>
+      {% empty %}
+        <p>No featured items available.</p>
+      {% endfor %}
+    </section>
+    {% endblock content %}
+  </main>
+
+</body>
+</html>

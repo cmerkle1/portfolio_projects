@@ -1,0 +1,19 @@
+{% extends 'shopping_app/base.html' %}
+
+{% block content %}
+<h1>Invoice</h1>
+
+<p>Thank you for your purchase, {{ user }}!</p>
+<p>Invoice sent to {{ user.email }}.</p>
+
+<h2>Items:</h2>
+<ul>
+    {% for item in cart_items %}
+        <li>{{ item.quantity }} x {{ item.name }} - ${{ item.price }}</li>
+    {% endfor %}
+</ul>
+
+<p><strong>Total:</strong> ${{ total }}</p>
+
+<a href="{% url 'view_cart' %}" class="btn btn-primary">Back to Cart</a>
+{% endblock %}

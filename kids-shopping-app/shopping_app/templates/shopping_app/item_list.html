@@ -1,0 +1,50 @@
+<!-- templates/shopping_app/item_list.html -->
+
+
+{% extends 'shopping_app/base.html' %}
+
+{% block content %}
+  <h2>{{ page_title }}</h2>
+
+  <form method="get" style="margin-bottom: 20px;">
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort" onchange="this.form.submit()">
+        <option value="">-- Select --</option>
+        <option value="store" {% if sort_by == 'store' %}selected{% endif %}>Store</option>
+    </select>
+  </form>
+
+  <ul>
+    {% for item in items %}
+      <li>
+        <a href="{% url 'item_detail' item.id %}">{{ item.name }}</a>
+        {% if item.store %}
+          <span style="color: gray;">Store: {{ item.store.name }}</span>
+        {% endif %}
+        <p>${{ item.price }}</p>
+        <p>{{ item.description }}</p>
+
+        <h4>Reviews</h4>
+        <ul>
+          {% for review in item.reviews.all %}
+            <li>
+              {{ review.content }}
+              {% if review.verified %}
+                <span style="color:blue;">(Verified Buyer)</span>
+              {% else %}
+                (Unverified Buyer)
+              {% endif %}
+            </li>
+          {% empty %}
+            <li>No reviews yet!</li>
+          {% endfor %}
+        </ul>
+
+        <a href="{% url 'item_update' item.id %}">Edit</a>
+        <a href="{% url 'item_delete' item.id %}">Delete</a>
+      </li>
+    {% empty %}
+      <li>No items available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

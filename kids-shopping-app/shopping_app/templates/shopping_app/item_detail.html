@@ -1,0 +1,38 @@
+<!-- templates/shopping_app/item_detail.html -->
+<!-- Displays full page with one item, shows reviews -->
+
+
+{% extends 'shopping_app/base.html' %}
+
+{% block content %}
+<h1>{{ item.name }}</h1>
+
+{% if item.image %}
+    <img src="{{ item.image.url }}" alt="{{ item.name }}" style="max-width: 400px; height: auto;">
+{% endif %}
+
+<p><strong>Price:</strong> ${{ item.price }}</p>
+<p><strong>Description:</strong> {{ item.description }}</p>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'leave_review' item.id %}" class="btn btn-pink">Leave a Review</a>
+<a href="{% url 'add_to_cart' item.id %}">Add to Cart</a>
+{% else %}
+    <p>You must be logged in to leave a review.</p>
+{% endif %}
+<h2>Reviews</h2>
+<ul>
+    {% for review in reviews %}
+        <li>
+            {{ review.comment }}
+            {% if review.verified %}
+                <span style="color: blue;">(Verified)</span>
+            {% else %}
+                (Unverified)
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>No reviews yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

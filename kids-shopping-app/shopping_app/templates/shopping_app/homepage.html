@@ -1,0 +1,67 @@
+<!-- templates/shopping_app/homepage.html -->
+<!-- main page with options to sort by price or store -->
+
+{% extends 'shopping_app/base.html' %}
+
+{% block content %}
+  <h2>{{ page_title }}</h2>
+
+  <form method="get" style="margin-bottom: 20px;">
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort" onchange="this.form.submit()">
+        <option value="">-- Select --</option>
+        <option value="store" {% if sort_by == 'store' %}selected{% endif %}>Store</option>
+        <option value="price" {% if sort_by == 'price' %}selected{% endif %}>Price</option>
+    </select>
+  </form>
+
+  <ul>
+    {% with previous_store=None %}
+      {% for item in items %}
+        {% if sort_by == "store" and previous_store != item.store.name %}
+          {% if not forloop.first %}
+            <hr style="margin: 30px 0;">
+          {% endif %}
+          <h3>
+            <a href="{% url 'view_store_detail' item.store.id %}">{{ item.store.name }}</a>
+          </h3>
+          {% with item.store.name as previous_store %}
+          {% endwith %}
+        {% endif %}
+
+        <li style="margin-bottom: 20px;">
+          <a href="{% url 'item_detail' item.id %}"><strong>{{ item.name }}</strong></a>
+          <br>
+          {% if item.image %}
+            <img src="{{ item.image.url }}" alt="{{ item.name }}" style="max-height: 100px; margin: 10px 0;">
+          {% endif %}
+          <p>${{ item.price }}</p>
+          <p>{{ item.description }}</p>
+
+          <h4>Reviews</h4>
+          <ul>
+            {% for review in item.reviews.all %}
+              <li>
+                {{ review.content }}
+                {% if review.verified %}
+                  <span style="color:blue;">(Verified Buyer)</span>
+                {% else %}
+                  (Unverified Buyer)
+                {% endif %}
+              </li>
+            {% empty %}
+              <li>No reviews yet!</li>
+            {% endfor %}
+          </ul>
+
+          {% if user.is_authenticated and item.store.seller == user %}
+            <a href="{% url 'item_update' item.id %}">Edit</a> |
+            <a href="{% url 'item_delete' item.id %}">Delete</a>
+          {% endif %}
+        </li>
+      {% empty %}
+        <li>No items available.</li>
+      {% endfor %}
+    {% endwith %}
+  </ul>
+{% endblock %}

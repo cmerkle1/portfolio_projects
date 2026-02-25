@@ -1,0 +1,15 @@
+<!-- templates/shopping_app/invoice_total.html -->
+<!-- displays items and total prices -->
+
+
+{% extends 'base.html' %}
+{% block title %}Invoice{% endblock %}
+{% block content %}
+<h2>Your Invoice</h2>
+<ul>
+  {% for item in cart_items %}
+    <li>{{ item.item.name }} - ${{ item.item.price }} x {{ item.quantity }}</li>
+  {% endfor %}
+</ul>
+<p><strong>Total:</strong> ${{ total }}</p>
+{% endblock %}

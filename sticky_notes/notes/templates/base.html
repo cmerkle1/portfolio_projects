@@ -1,0 +1,57 @@
+<!-- notes/templates/note_form.html -->
+<!-- HTML for the base/home page -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
+    <title>
+        {% block title %}
+            Sticky Notes
+        {% endblock title %}
+    </title>
+
+    <!-- Link to CSS style sheet -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link rel="icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+    <header>
+  <h1 class="header-title">
+    {% block header %}
+      Sticky Notes
+    {% endblock header %}
+  </h1>
+  <a href="{% url 'note_create' %}" class="add-note-button header-button">➕ Add Note</a>
+</header>
+
+    <main>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% block content %}
+  <div class="note-container">
+    {% for note in notes %}
+      <div class="note">
+        <h2>{{ note.title }}</h2>
+        <p>{{ note.content }}</p>
+      </div>
+    {% endfor %}
+  </div>
+        {% endblock content %}
+    </main>
+    <footer>
+        Created by C. Merkle
+    </footer>
+    </body>
+</html>

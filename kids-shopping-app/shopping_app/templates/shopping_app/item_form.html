@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+    <link rel="stylesheet" href="{% static 'shopping_app/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chewy&display=swap">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>🧸 Kids Shopping App 🧸</h1>
+        <nav>
+            <a href="{% url 'view_store' pk=store.pk %}">Back to Store</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2 class="form-title">🎨 Add New Item</h2>
+
+            <form method="post" enctype="multipart/form-data" class="styled-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.description.label_tag }}
+                    {{ form.description }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.price.label_tag }}
+                    {{ form.price }}
+                </div>
+
+                <div class="form-group checkbox-group">
+                    {{ form.available }}
+                    {{ form.available.label_tag }}
+                </div>
+
+                <div class="form-group file-group">
+                    {{ form.image.label_tag }}
+                    {{ form.image }}
+                </div>
+
+                <button type="submit">🎉 Save Item</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
