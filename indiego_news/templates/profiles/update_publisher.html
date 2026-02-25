@@ -1,8 +1,45 @@
-{% block content %}
-  <h2>Select Your Publisher</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-  </form>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Publisher</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <!-- Banner -->
+    <div id="banner">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'banner.png' %}" alt="Indie-Go News">
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <a href="{% url 'home' %}" class="btn">Main Page</a>
+        
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
+
+    <!-- Main Content Box -->
+    <div class="auth-container">
+        <h1>Select Publisher</h1>
+        <p>Choose the publisher you are associated with.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+</body>
+</html>

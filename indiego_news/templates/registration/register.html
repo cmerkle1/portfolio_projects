@@ -1,23 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Register for an IndieGo Account</title>
+    <!-- This line is what pulls in the CSS from the other file -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Sign Up</h1>
+    
+    <!-- Banner (Clickable to go Home) -->
+    <div id="banner">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'banner.png' %}" alt="Indie-Go News">
+        </a>
+    </div>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <!-- Navigation Bar -->
+    <nav id="nav">
+        <!-- The Home Button you requested -->
+        <a href="{% url 'home' %}" class="btn">Home</a>
+        
+        <!-- Sign In Button (since they are on the register page) -->
+        <a href="{% url 'login' %}" class="btn">Sign In</a>
+    </nav>
+    
+    <!-- Registration Form Box -->
+    <div class="auth-container">
+        <h1>Sign Up</h1>
 
-        {% if form.errors %}
-            <div class="form-errors">
-                {{ form.errors }}
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                {{ form.as_p }}
             </div>
-        {% endif %}
-        <button type="submit">Sign Up</button>
-    </form>
 
-    <p>Already have an account? <a href="{% url 'login' %}">Sign in</a></p>
+            {% if form.errors %}
+                <div class="form-errors">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+            
+            <button type="submit">Create Account</button>
+        </form>
+
+        <p>Already have an account? <a href="{% url 'login' %}">Sign in</a></p>
+    </div>
+
 </body>
 </html>

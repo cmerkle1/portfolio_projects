@@ -8,7 +8,7 @@ services:
       MYSQL_USER: news_user
       MYSQL_PASSWORD: password
     ports:
-      - "3306:3306"
+      - "3307:3306"
     networks:
       - mynetwork
 
@@ -17,9 +17,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: news-app-container
-    command: ["./wait-for-db.sh", "db", "3306", "gunicorn", "news_application.wsgi:application", "--bind", "0.0.0.0:8000"]
-    volumes:
-      - .:/app
+    # Using the python script we created in the previous step
+    command: ["python", "wait_for_db.py", "db", "3306", "python", "manage.py", "runserver", "0.0.0.0:8000"]
     ports:
       - "8000:8000"
     depends_on:

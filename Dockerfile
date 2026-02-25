@@ -5,15 +5,17 @@ ENV PYTHONBUFFERED=1
 
 WORKDIR /app
 
+# We still need these to build the mysqlclient driver
+RUN apt-get update && apt-get install -y \
+    pkg-config \
+    gcc \
+    default-libmysqlclient-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt /app/
-RUN apt-get update && apt-get install -y netcat-openbsd
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-COPY wait-for-db.sh /app/
-RUN chmod +x /app/wait-for-db.sh
-
 EXPOSE 8000
-
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

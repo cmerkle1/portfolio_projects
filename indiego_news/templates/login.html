@@ -8,16 +8,42 @@
 </head>
 <body>
 
-    <h1>Sign In to Indiego News</h1>
+    <!-- Banner (Clickable to go Home) -->
+    <div id="banner">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'banner.png' %}" alt="Indie-Go News">
+        </a>
+    </div>
 
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <!-- Navigation Bar -->
+    <nav id="nav">
+        <!-- Home Button -->
+        <a href="{% url 'home' %}" class="btn">Home</a>
+        
+        <!-- Register Button (since they are on the login page) -->
+        <a href="{% url 'register' %}" class="btn">Register</a>
+    </nav>
 
-        <button type="submit">Sign In</button>
-    </form>
+    <!-- Login Form Box -->
+    <div class="auth-container">
+        <h1>Sign In</h1>
+        <p>Welcome back! Please enter your credentials.</p>
 
-    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+
+            <button type="submit">Sign In</button>
+        </form>
+
+        <br>
+        <p style="font-size: 0.9rem;">
+            Don't have an account? <a href="{% url 'register' %}">Register here</a>.
+        </p>
+    </div>
 
 </body>
 </html>

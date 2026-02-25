@@ -1,9 +1,62 @@
-<!-- indiego_news/templates/indiego_news/article_detail.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title }} | Indie-Go News</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
 
-{% block content %}
-  <h1>{{ article.title }}</h1>
-  <p><strong>By:</strong> {{ article.posted_by }}</p>
-  <p><strong>Type:</strong> {{ article.article_type }}</p>
-  <p>{{ article.content }}</p>
-  <p><em>Created on: {{ article.created_at }}</em></p>
-{% endblock %}
+    <!-- Banner -->
+    <div id="banner">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'banner.png' %}" alt="Indie-Go News">
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <a href="{% url 'home' %}" class="btn">Main Page</a>
+        
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn">Sign In</a>
+        {% endif %}
+    </nav>
+
+    <!-- Main Content Box -->
+    <div class="dashboard-container" style="max-width: 800px;">
+        
+        <!-- Big Headline -->
+        <h1 class="article-title">{{ article.title }}</h1>
+
+        <!-- The "Byline" (Author, Type, Date) -->
+        <div class="article-meta">
+            <strong>WRITTEN BY:</strong> {{ article.posted_by.username|upper }} 
+            &nbsp;|&nbsp; 
+            <strong>SECTION:</strong> {{ article.article_type|upper }}
+            &nbsp;|&nbsp; 
+            <strong>DATE:</strong> {{ article.created_at|date:"F j, Y" }}
+        </div>
+
+        <!-- The Article Text -->
+        <div class="article-body">
+            {{ article.content|linebreaks }}
+        </div>
+
+        <!-- Footer / Back Button -->
+        <hr style="border: 2px solid #333; margin: 40px 0;">
+        
+        <div style="text-align: center;">
+            <a href="{% url 'home' %}" class="btn">Return to Home</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

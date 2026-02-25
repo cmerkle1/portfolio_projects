@@ -1,91 +1,326 @@
+/* --- Global Styles --- */
 body {
-    font-family: Garamond, sans-serif;
-    background-image: url('https://morguefile.nyc3.cdn.digitaloceanspaces.com/imageData/public/files/h/HelloBob/09/l/1441559275oq1x5.jpg');
+    font-family: 'Verdana', sans-serif;
+    background-image: url('/static/news_back.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     min-height: 100vh;
     color: #333;
-
+    margin: 0;
 }
 
+/* --- Banner --- */
 #banner {
-    background-color: #380070;
+    background-color: white;
+    text-align: center;
+    border-bottom: 4px solid #333;
+    padding: 0;
+}
+
+#banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- Navigation --- */
+#nav {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button, .btn {
+    background-color: #5D3FD3;
+    color: white;
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border: 2px solid #333;
+    cursor: pointer;
+    margin: 0 10px;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px #333;
+    transition: all 0.1s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background-color: #4a32a8;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #333;
+}
+
+/* --- Main Layout --- */
+#articles {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Filter Section --- */
+.filter {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
     color: white;
     text-align: center;
-    padding: 20px 0;
+    margin-bottom: 30px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-#nav {
-    background-color: #ffffff;
-    padding: 10px;
+.filter select {
+    padding: 8px;
+    font-size: 1rem;
+    margin: 0 10px;
+}
+
+/* --- Article Tiles --- */
+.article-tile {
+    background-color: white;
+    border: 3px solid #333;
+    margin-bottom: 30px;
+    padding: 25px;
+    box-shadow: 8px 8px 0px rgba(93, 63, 211, 0.4); 
+    transition: transform 0.2s;
+}
+
+.article-tile:hover {
+    transform: translateY(-5px);
+}
+
+.article-tile a {
+    text-decoration: none;
+    color: #333;
+}
+
+.article-tile h2 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #5D3FD3; 
+    font-size: 1.8rem;
+    margin-top: 0;
+    text-decoration: underline;
+}
+
+.author {
+    margin-top: 20px;
+    font-style: italic;
+    color: #666;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.sub-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    background-color: #444; 
+}
+
+/* --- Auth Pages (Register/Login) --- */
+.auth-container {
+    max-width: 450px;
+    margin: 80px auto;
+    background-color: white;
+    border: 3px solid #333;
+    padding: 40px;
+    box-shadow: 10px 10px 0px rgba(93, 63, 211, 0.4); 
     text-align: center;
 }
 
-#nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #003366;
+.auth-container h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #5D3FD3;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-decoration: underline;
 }
 
-.article-tile {
-    background-color: white;
-    border: 1px solid #ccc;
-    margin: 15px auto;
-    padding: 15px;
-    max-width: 600px;
+.auth-container p {
+    font-size: 1.1rem;
 }
 
-.login-page {
-    background-image: url('https://morguefile.nyc3.cdn.digitaloceanspaces.com/imageData/public/files/h/HelloBob/09/l/1441559275oq1x5.jpg'); /* or change it */
-    color: #ccccccee; 
+.auth-container a {
+    color: #5D3FD3;
+    font-weight: bold;
 }
 
-.login-page h1,
-.login-page label,
-.login-page p,
-.login-page a {
-    color: #ccc;
-}
-
-.login-page input {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #aaa;
-    padding: 8px;
+/* --- Form Styling --- */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"] {
     width: 100%;
-    max-width: 400px;
-    display: block;
-    margin: 10px 0;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 2px solid #333;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
 }
 
-.login-page form {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    max-width: 500px;
-    margin: 30px auto;
-    border-radius: 8px;
+input:focus {
+    background-color: #fff;
+    border-color: #5D3FD3;
+    outline: none;
+    box-shadow: 4px 4px 0px rgba(93, 63, 211, 0.2);
 }
 
-.journalist-page {
-    color: #909090f7;
+.form-errors {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border: 2px solid red;
+    padding: 10px;
 }
 
-.journalist-page a {
-    color: #ddd;
+/* --- Dashboard / Profile Pages --- */
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: white;
+    border: 3px solid #333;
+    padding: 30px;
+    /* Purple shadow to match the theme */
+    box-shadow: 10px 10px 0px rgba(93, 63, 211, 0.4); 
 }
 
-.editor-page {
-    color: #d293ff;
+.dashboard-container h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #5D3FD3;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-top: 0;
 }
 
-.editor-page a {
-    color: #fefeff;
+/* The list of articles/tasks */
+.job-list {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
 }
 
-.reader-page {
-    color: #6861af;
+.job-item {
+    background-color: #f4f4f4;
+    border: 2px solid #333;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex; /* Aligns title and buttons in a row */
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
 }
 
-.reader-page a {
-    color: #fefeff;
+.job-item:hover {
+    background-color: #e0e0e0;
+}
+
+.job-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.job-item a:hover {
+    color: #5D3FD3;
+    text-decoration: underline;
+}
+
+/* Grouping the buttons on the right side */
+.action-group {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+/* Small Delete Button (Red) */
+.btn-delete {
+    background-color: #ff4d4d;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border: 2px solid #333;
+    color: white !important; /* !important forces the text to stay white */
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px #333;
+    text-decoration: none; /* Ensures no underline */
+}
+
+.btn-delete:hover {
+    background-color: #cc0000;
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px #333;
+    color: white !important;
+}
+
+/* Small Edit Button (Blue/Gray) */
+.btn-edit {
+    background-color: #333;
+    color: white !important; /* !important forces the text to stay white */
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 2px solid #333;
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 2px 2px 0px #aaa;
+    display: inline-block;
+}
+
+.btn-edit:hover {
+    background-color: #555;
+    color: white !important;
+}
+
+/* --- Article Reading Page --- */
+.article-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.article-meta {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    color: #555;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.article-meta strong {
+    color: #5D3FD3; /* Purple highlight for labels */
+}
+
+.article-body {
+    font-family: 'Verdana', sans-serif; /* Clean font for reading */
+    line-height: 1.8; /* More space between lines is easier to read */
+    font-size: 1.1rem;
+    color: #222;
+    text-align: justify; /* Newspaper style alignment */
+}
+
+/* Add a drop cap (big first letter) for style */
+.article-body p:first-of-type::first-letter {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3.5rem;
+    float: left;
+    margin-right: 10px;
+    line-height: 0.8;
+    color: #5D3FD3;
+    font-weight: bold;
 }

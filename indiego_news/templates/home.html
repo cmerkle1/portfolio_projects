@@ -10,27 +10,28 @@
 
     <!-- Banner -->
     <div id="banner">
-        <h1>Indie-Go News</h1>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'banner.png' %}" alt="Indie-Go News">
+        </a>
     </div>
 
     <!-- Navigation Links -->
     <nav id="nav">
-        <form action="{% url 'register' %}" method="post" style="display: inline;">
-            {% csrf_token %}
-            <button type="submit">Register</button>
-        </form>
         {% if user.is_authenticated %}
-        <form action="{% url 'logout' %}" method="post" style="display: inline;">
-            {% csrf_token %}
-            <button type="submit">Sign Out</button>
-        </form>        
-        
-        <form action="{% url 'profile' %}" method="post" style="display: inline;">
-            {% csrf_token %}
-            <button type="submit">Profile</button>
-        </form>  
+            <!-- Welcome Message for logged in users -->
+            <span style="margin-right: 15px; font-weight: bold; font-family: 'Courier New';">
+                Hello, {{ user.username }}
+            </span>
+            
+            <a href="{% url 'profile' %}" class="btn">My Profile</a>
+            
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit">Sign Out</button>
+            </form>        
         {% else %}
-            <a href="{% url 'login' %}">Sign In</a>
+            <a href="{% url 'register' %}" class="btn">Register</a>
+            <a href="{% url 'login' %}" class="btn">Sign In</a>
         {% endif %}
     </nav>
 
@@ -39,11 +40,13 @@
 
         <div class="filter">
             <form method="get" action="{% url 'home' %}">
-                <label for="publisher">Filter by Publisher</label>
-                <select name="publisher" id="publisher" class="form-control">
-                    <option value="">All Publishers</option>
-                    {% for pub in publishers %}
-                        <option value="{{ pub.id }}" {% if pub.id == selected_publisher_id %}selected{% endif %}>{{ pub.name }}</option>
+                <label for="journalist">Filter by Journalist:</label>
+                <select name="journalist" id="journalist">
+                    <option value="">All Journalists</option>
+                    {% for journalist in journalists %}
+                        <option value="{{ journalist.id }}" {% if journalist.id == selected_journalist_id %}selected{% endif %}>
+                            {{ journalist.username }}
+                        </option>
                     {% endfor %}
                 </select>
                 <button type="submit">Filter</button>
@@ -59,14 +62,23 @@
                 </a>
                 <p class="author">
                     By {{ article.posted_by.username }}
+                    <br>
+                    <span style="font-size: 0.8rem; color: #666;">
+                        {{ article.created_at|date:"M d, Y" }}
+                    </span>
+                    
                     {% if user.is_authenticated and user.role == "Reader" %}
                         |
                         <form action="{% url 'subscribe' article.posted_by.id %}" method="post" style="display: inline;">
                             {% csrf_token %}
-                            <button type="submit">Subscribe</button>
+                            <button type="submit" class="sub-btn">Subscribe</button>
                         </form>
                     {% endif %}
                 </p>
+            </div>
+        {% empty %}
+            <div style="text-align: center; padding: 20px;">
+                <p>No articles found for this selection.</p>
             </div>
         {% endfor %}
     

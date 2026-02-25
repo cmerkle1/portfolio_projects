@@ -98,29 +98,29 @@ def article_detail(request, pk, slug):
 
 def homepage(request):
     """View to display the homepage with articles
-    filtered and sorted by publisher."""
-    publishers = Publisher.objects.all()
-    selected_publisher_id = request.GET.get('publisher')
-    try:
-        selected_publisher_id = int(selected_publisher_id)
-    except (TypeError, ValueError):
-        selected_publisher_id = None
-    publisher = None
+    filtered and sorted by JOURNALIST."""
 
-    if selected_publisher_id:
-        publisher = Publisher.objects.get(id=selected_publisher_id)
+    # 1. Fetch all users who are marked as Journalists
+    journalists = CustomUser.objects.filter(role=CustomUser.JOURNALIST)
+
+    selected_journalist_id = request.GET.get('journalist')
+
+    try:
+        selected_journalist_id = int(selected_journalist_id)
+    except (TypeError, ValueError):
+        selected_journalist_id = None
 
     articles = Article.objects.filter(approved=True)
 
-    if publisher:
-        articles = articles.filter(posted_by__publisher=publisher)
+    if selected_journalist_id:
+        articles = articles.filter(posted_by__id=selected_journalist_id)
 
-    articles = articles.order_by('created_at')
+    articles = articles.order_by('-created_at')
 
     return render(request, 'home.html', {
         'articles': articles,
-        'publishers': publishers,
-        'selected_publisher_id': selected_publisher_id
+        'journalists': journalists,  # Sending the list of journalists
+        'selected_journalist_id': selected_journalist_id
     })
 
 

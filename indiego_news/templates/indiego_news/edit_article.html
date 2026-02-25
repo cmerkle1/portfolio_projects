@@ -1,17 +1,77 @@
-{% block content %}
-  <h1>Edit Article: {{ article.title }}</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Article</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <!-- Quick extra style for the text box area -->
+    <style>
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 12px;
+            border: 2px solid #333;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
 
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
+    <!-- Banner -->
+    <div id="banner">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'banner.png' %}" alt="Indie-Go News">
+        </a>
+    </div>
 
-    {% if is_editor %}
-      <button type="submit" name="approve" value="true">Approve</button>
-    {% endif %}
-  </form>
+    <!-- Navigation -->
+    <nav id="nav">
+        <a href="{% url 'home' %}" class="btn">Main Page</a>
+        <a href="{% url 'profile' %}" class="btn">My Profile</a>
+        
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
 
-  <a href="{% url 'profile' %}">
-    <button type="button">Return to Profile</button>
-  </a>
-{% endblock %}
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <h1>Edit Article: <span style="text-decoration: underline;">{{ article.title }}</span></h1>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed #ccc;">
+                <!-- Standard Save Button -->
+                <button type="submit">Save Changes</button>
+
+                <!-- Editor Only: Approve Button (Green) -->
+                {% if is_editor %}
+                  <button type="submit" name="approve" value="true" style="background-color: #28a745; border-color: #1e7e34;">
+                      ✓ Approve & Publish
+                  </button>
+                {% endif %}
+            </div>
+        </form>
+
+        <br>
+        <p>
+            <a href="{% url 'profile' %}" style="color: #666; font-family: 'Courier New';">
+                &larr; Cancel and Return to Profile
+            </a>
+        </p>
+    </div>
+
+</body>
+</html>

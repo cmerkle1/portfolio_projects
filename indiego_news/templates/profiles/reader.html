@@ -1,44 +1,64 @@
 {% load static %}
-{% block content %}
-<div class="reader-page">
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Profile</title>
+    <title>Reader Profile</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 
+    <!-- Banner -->
     <div id="banner">
-        <h1>Your Profile</h1>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'banner.png' %}" alt="Indie-Go News">
+        </a>
     </div>
 
-    <h2>Your Subscriptions</h2>
-    <ul>
-      {% for sub in subscriptions %}
-        <li>
-            {% if sub.publisher %}
-                <a href="{% url 'author_articles' sub.publisher.id %}">{{ sub.publisher.name }}</a>
-            {% elif sub.journalist %}
-                <a href="{% url 'author_articles' sub.journalist.id %}">{{ sub.journalist.username }}</a>
-            {% endif %}
-        </li>
-      {% empty %}
-        <li>You have no subscriptions.</li>
-      {% endfor %}
-    </ul>
+    <!-- Navigation -->
+    <nav id="nav">
+        <a href="{% url 'home' %}" class="btn">Main Page</a>
+        
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
 
-    <form action="{% url 'home' %}" method="post" style="display: inline;">
-        {% csrf_token %}
-        <button type="submit">Main Page</button>
-    </form>
+    <!-- Main Dashboard Content -->
+    <div class="dashboard-container">
+        <h1>Reader Profile: {{ user.username }}</h1>
+        
+        <h2>Your Subscriptions</h2>
+        <p style="margin-bottom: 20px; font-style: italic;">Click a name to see their latest articles.</p>
 
-    <form method="post" action="{% url 'logout' %}" style="display:inline;">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Logout</button>
-    </form>
+        <ul class="job-list">
+          {% for sub in subscriptions %}
+            <li class="job-item">
+                
+                <!-- Publisher Subscription -->
+                {% if sub.publisher %}
+                    <a href="{% url 'author_articles' sub.publisher.id %}" style="display: block; width: 100%;">
+                        🏢 {{ sub.publisher.name }} <span style="font-size:0.8rem; color:#666;">(Publisher)</span>
+                    </a>
+                
+                <!-- Journalist Subscription -->
+                {% elif sub.journalist %}
+                    <a href="{% url 'author_articles' sub.journalist.id %}" style="display: block; width: 100%;">
+                        ✍️ {{ sub.journalist.username }} <span style="font-size:0.8rem; color:#666;">(Journalist)</span>
+                    </a>
+                {% endif %}
+
+                <!-- Visual Arrow -->
+                <span style="font-size: 1.5rem; color: #5D3FD3;">👉</span>
+            </li>
+          {% empty %}
+            <li class="job-item" style="display: block; text-align: center; color: #666;">
+                You haven't subscribed to anyone yet. Go explore the news!
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
 
 </body>
 </html>
-{% endblock %}

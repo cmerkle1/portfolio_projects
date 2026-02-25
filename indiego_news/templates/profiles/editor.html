@@ -1,41 +1,65 @@
 {% load static %}
-{% block content %}
-<div class="editor-page">
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
 
-<div>
-    <h1>Indie-Go welcomes {{ user.username }}, Editor</h1>
-</div>
+    <!-- Banner -->
+    <div id="banner">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'banner.png' %}" alt="Indie-Go News">
+        </a>
+    </div>
 
-<h2>Pending Articles</h2>
-<ul>
-  {% for article in pending_articles %}
-    <li>
-      <a href="{% url 'approve_article' article.id %}">{{ article.title }}</a>
+    <!-- Navigation -->
+    <nav id="nav">
+        <a href="{% url 'home' %}" class="btn">Main Page</a>
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
 
-      <!-- Edit link -->
-      <a href="{% url 'edit_article' article.id article.slug %}" style="margin-left: 10px;">Edit</a>
+    <!-- Main Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="header-section">
+            <h1>Editor Dashboard: {{ user.username }}</h1>
+            <p>Review and manage content below.</p>
+        </div>
 
-      <!-- Delete form -->
-      <form action="{% url 'delete_article' article.id article.slug %}" method="post" style="display: inline;">
-        {% csrf_token %}
-        <button type="submit" style="margin-left: 5px;">Delete</button>
-      </form>
-    </li>
-  {% empty %}
-    <li>No articles need review.</li>
-  {% endfor %}
-</ul>
+        <h2>Pending Articles</h2>
+        
+        <ul class="job-list">
+          {% for article in pending_articles %}
+            <li class="job-item">
+                <!-- Article Title Link -->
+                <a href="{% url 'approve_article' article.id %}">
+                     📄 {{ article.title }}
+                </a>
 
-<!-- Navigation buttons -->
-<form action="{% url 'home' %}" method="post" style="display: inline;">
-    {% csrf_token %}
-    <button type="submit">Main Page</button>
-</form>
-<form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
+                <!-- Action Buttons -->
+                <div class="action-group">
+                    <!-- Edit Button -->
+                    <a href="{% url 'edit_article' article.id article.slug %}" class="btn-edit">Edit</a>
 
-</div>
-{% endblock %}
+                    <!-- Delete Form/Button -->
+                    <form action="{% url 'delete_article' article.id article.slug %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-delete">Delete</button>
+                    </form>
+                </div>
+            </li>
+          {% empty %}
+            <li class="job-item">
+                <span>All caught up! No articles need review.</span>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
