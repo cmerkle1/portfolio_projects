@@ -91,7 +91,7 @@ A Python-based vision application that uses OpenCV (cv2) for image processing an
 To view instructions, click [here](./card_detect) to see the project specific README file.
 
 
-### 📝 [Sticky Notes CRUD App](./sticky_notes)
+### 📋 [Sticky Notes CRUD App](./sticky_notes)
 A sticky notes board showcasing CRUD. Notes can be created, updated, and deleted, and appear on a virtual bulletin board.
 
 <br>
