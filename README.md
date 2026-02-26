@@ -15,13 +15,16 @@ This project is containerized using Docker. You do not need to install Python or
    cd news_application
 
 2. **Build and Start the App:**
-   ```docker compose up --build
+   ```bash
+   docker compose up --build
 
 3. **Set up the Database (New Terminal):**
-   ```docker exec -it news-app-container python manage.py migrate
+   ```bash
+   docker exec -it news-app-container python manage.py migrate
 
 4. **Create an Admin User:**
-   ```docker exec -it news-app-container python manage.py createsuperuser
+   ```bash
+   docker exec -it news-app-container python manage.py createsuperuser
 
 5. **View the App:**
    Navigate to http://localhost:8000
