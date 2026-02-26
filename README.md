@@ -20,26 +20,7 @@ A full-stack news app built with Django, MySQL, and Docker. Allows the user to r
 <br>
 
 #### Instructions
-This project is containerized using Docker. You do not need to install Python or MySQL locally to run it.
-
-1. **Navigate to the project folder:**
-   ```bash
-   cd news_application
-
-2. **Build and Start the App:**
-   ```bash
-   docker compose up --build
-
-3. **Set up the Database (New Terminal):**
-   ```bash
-   docker exec -it news-app-container python manage.py migrate
-
-4. **Create an Admin User:**
-   ```bash
-   docker exec -it news-app-container python manage.py createsuperuser
-
-5. **View the App:**
-   Navigate to http://localhost:8000
+To view instructions, click the project name above to see the project specific README file.
 
 
 ### 🧸 [Ecommerce App](./kids_shopping_app)
