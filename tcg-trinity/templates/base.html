@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TCG Trinity{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto+Flex:opsz,wght@8..144,400;8..144,700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="site-header">
+    <div class="top-bar">
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61582655866448" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <div class="nav-bar">
+        <div class="logo-container">
+  <a href="{% url 'home' %}">
+    <img src="{% static 'images/trinity.png' %}" alt="TCG Trinity Logo">
+  </a>
+</div>
+
+
+        <nav class="site-nav">
+            <ul>
+                {% if request.resolver_match.url_name != 'home' %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                {% endif %}
+
+                <!-- Dropdown Menu for Events -->
+                <li class="dropdown">
+                    <a href="{% url 'events' %}" class="dropbtn">Events</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'events' %}">Monthly Calendar</a>
+                        <a href="{% url 'open_play' %}">Open Play</a>
+                    </div>
+                </li>
+
+                {% if request.resolver_match.url_name != 'product_list' %}
+                    <li><a href="{% url 'product_list' %}">Store</a></li>
+                {% endif %}
+
+                {% if request.resolver_match.url_name != 'contact' %}
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    <p>2025 TCG Trinity — Design <a href="www.caughtwebdesign.com">CitW</a></p>
+</footer>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

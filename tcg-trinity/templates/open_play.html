@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Open Play – TCG Trinity{% endblock %}
+
+{% block content %}
+<div class="open-play-page">
+  <div class="open-play-box">
+    <h1>Open Play</h1>
+    <p class="intro">
+      Looking to join in on the fun? Our Open Play sessions are the perfect time to meet other players,
+      learn new games, and enjoy the TCG Trinity community.
+    </p>
+
+    <section class="open-play-details">
+      <h2>Schedule</h2>
+      <ul>
+        <li><strong>Magic: The Gathering</strong> – Fridays @ 6 PM (Modern) or Saturdays @ 6pm (Commander)</li>
+        <li><strong>Pokémon</strong> – Sundays @ 6 PM</li>
+        <li><strong>Lorcana</strong> – Sundays @ 4 PM</li>
+        <li><strong>Yu-Gi-Oh!</strong> – Tuesdays @ 6 PM</li>
+        <li><strong>Digimon</strong> – Mondays @ 5 PM</li>
+        <li><strong>One Piece</strong> – Mondays @ 7 PM</li>
+      </ul>
+    </section>
+
+    <section class="open-play-info">
+      <h2>How It Works</h2>
+      <p>
+        Everyone is welcome—no sign-up needed! Bring your decks, minis, or favorite tabletop games and join an existing group or start a new one. 
+        We keep a few demo games available if you want to try something new.
+      </p>
+    </section>
+
+    <section class="open-play-contact">
+      <h2>Questions?</h2>
+      <p>
+        Check out our <a href="{% url 'events' %}">Events</a> page to see our monthly calendar! If you have questions, please reach out on Facebook or send us a message using the <a href="{% url 'contact' %}">contact</a> form.
+      </p>
+    </section>
+  </div>
+</div>
+
+{% endblock %}

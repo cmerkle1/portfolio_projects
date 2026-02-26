@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact – TCG Trinity{% endblock %}
+
+{% block content %}
+<div class="contact-page">
+  <div class="contact-box">
+    <h1>Contact TCG Trinity</h1>
+
+    <div class="contact-details-container">
+      <div class="contact-info">
+        <p><strong>Phone:</strong> (315) 486-4337</p>
+
+        <p><strong>Address:</strong><br>
+        4998 North Jefferson Street<br>
+        Pulaski, New York</p>
+
+        <p><strong>Hours of Operation:</strong></p>
+        <ul class="hours">
+          <li>Mon–Thu: 12 PM – 9 PM</li>
+          <li>Fri: 12 PM – 11 PM</li>
+          <li>Sat: 10 AM – 11 PM</li>
+          <li>Sun: 10 AM – 6 PM</li>
+        </ul>
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.45685486759!2d-76.12360332452832!3d43.57619955740868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d8351a71b7f169%3A0x1677a0fd9856f6eb!2s4998%20Jefferson%20St%2C%20Pulaski%2C%20NY%2013142!5e0!3m2!1sen!2sus!4v1762283245435!5m2!1sen!2sus" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn-send">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

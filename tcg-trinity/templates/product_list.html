@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Store – TCG Trinity{% endblock %}
+
+{% block content %}
+<h1 style="text-align:center; margin-bottom:30px;">Our Store</h1>
+
+<!-- Shopify Buy Button Container -->
+<div class="shopify-store-container">
+  <div id="product-component-1762284415731"></div>
+</div>
+
+<script type="text/javascript">
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'zj0tqb-wp.myshopify.com',
+      storefrontAccessToken: '136795d727d797982a12789716dc32e2',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+        id: '8754113413275',
+        node: document.getElementById('product-component-1762284415731'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+          product: {
+            styles: {
+              product: {
+                "@media (min-width: 601px)": {
+                  "max-width": "400px",
+                  "margin-left": "auto",
+                  "margin-right": "auto",
+                  "margin-bottom": "50px"
+                }
+              }
+            },
+            text: {
+              button: "Add to cart"
+            }
+          },
+          modalProduct: {
+            contents: {
+              img: false,
+              imgWithCarousel: true,
+              button: false,
+              buttonWithQuantity: true
+            },
+            styles: {
+              product: {
+                "@media (min-width: 601px)": {
+                  "max-width": "100%",
+                  "margin-left": "0px",
+                  "margin-bottom": "0px"
+                }
+              }
+            },
+            text: {
+              button: "Add to cart"
+            }
+          },
+          cart: {
+            text: {
+              total: "Subtotal",
+              button: "Checkout"
+            }
+          }
+        }
+      });
+    });
+  }
+})();
+</script>
+{% endblock %}

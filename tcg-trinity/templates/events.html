@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="events-page">
+    <h1>Upcoming Events</h1>
+
+    <!-- Google Calendar Embed -->
+    <div class="calendar-embed" style="margin-bottom: 2rem; text-align: center;">
+        <iframe 
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&src=MDczMTNlMmNhZjc5ZTVjYWU4MTdhYTlkYTlmMmY2NjM0YzlkNGI1MTVmNDUyYzVhZTEwNGVkNmYyNjJlZDM2MkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23e4c441&color=%237cb342" 
+            style="border:solid 1px #777777" 
+            width="800" 
+            height="600" 
+            frameborder="0" 
+            scrolling="no">
+        </iframe>
+    </div>
+</div>
+{% endblock %}

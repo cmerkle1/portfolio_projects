@@ -1,0 +1,536 @@
+/* ------------------------------
+   GLOBAL STYLES
+------------------------------ */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ribeye', cursive;
+  background-color: #0f1e16;
+  background-image: url("images/tile.png");
+  background-size: 40%;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: #f0f0f0;
+}
+
+h1, h2{
+  font-family: 'Ribeye', cursive;
+  color: #e4c441;
+  margin-bottom: 0.6em;
+}
+
+h3, h4, h5 {
+  font-family: 'Roboto Flex', sans-serif;
+  color: #e6e0c5;
+  margin-bottom: 0.6em;
+}
+
+a {
+  color: #e4c441;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ------------------------------
+   TOP BAR (ADDRESS + SOCIALS)
+------------------------------ */
+.top-bar {
+  background-color: #1a1a1a;
+  color: #2a651f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 20px;
+  font-size: 0.9rem;
+}
+
+.top-bar .social-links a {
+  color: #dddddd;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.top-bar .social-links a:hover {
+  color: #ffd117;
+}
+
+/* ------------------------------
+   HEADER + NAVIGATION
+------------------------------ */
+.nav-bar {
+  background-color: #111;
+  background-image: url("images/background.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+.logo-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.logo-container img {
+  height: 200px;
+  transition: transform 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.logo-container img:hover {
+  transform: scale(1.05);
+}
+
+/* NAVIGATION MENU */
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.site-nav li {
+  position: relative;
+  margin: 0 20px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  transition: color 0.3s;
+}
+
+.site-nav a:hover {
+  color: #e4c441;
+}
+
+/* DROPDOWN MENU */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #222;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 12px 15px;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.dropdown-content a:hover {
+  background-color: #333;
+  color: #e4c441;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ------------------------------
+   HERO SECTION (HOME PAGE)
+------------------------------ */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  margin: 60px auto;
+  max-width: 900px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.hero h2 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+  color: #e5e49f;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+/* ------------------------------
+   FEATURED PRODUCTS GRID
+------------------------------ */
+.featured-products {
+  text-align: center;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.featured-products h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.product-card {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+  width: 100%;
+  max-width: 250px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  background-color: #222;
+}
+
+.product-card h4 {
+  color: #e4c441;
+  font-size: 1.3rem;
+}
+
+.product-card p {
+  color: #ccc;
+}
+
+/* ------------------------------
+   EVENTS PAGE
+------------------------------ */
+.events-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.events-page h1 {
+  color: #e5e49f;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.calendar-embed iframe {
+  border-radius: 10px;
+}
+
+/* ------------------------------
+   OPEN PLAY PAGE
+------------------------------ */
+.open-play-page {
+  text-align: center;
+  max-width: 800px;
+  margin: 40px auto;
+  color: #f0f0f0;
+}
+
+.open-play-page h1 {
+  color: #e5e49f;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+/* Open Play section headings */
+.open-play-details h2,
+.open-play-info h2,
+.open-play-contact h2 {
+  color: #e5e49f;
+}
+
+
+.open-play-page ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 20px;
+}
+
+.open-play-page li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.open-play-info, .open-play-contact {
+  margin-top: 30px;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.site-footer {
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+}
+
+.open-play-page .intro,
+.open-play-details ul,
+.open-play-info p,
+.open-play-contact p {
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.open-play-box {
+  background-color: rgba(0, 0, 0, 0.6); /* same semi-transparent dark background */
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+  margin: 60px auto;
+}
+
+/* Ensure paragraphs and lists inside stay in Roboto Flex */
+.open-play-box p,
+.open-play-box ul {
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 400;
+  color: #ddd;
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Optional: tighten spacing between sections */
+.open-play-box section {
+  margin-top: 30px;
+}
+/* ------------------------------
+   RESPONSIVE DESIGN
+------------------------------ */
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+}
+
+/* ------------------------------
+   CONTACT PAGE
+------------------------------ */
+.contact-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.contact-page h1 {
+  font-size: 2.4rem;
+  color: #e4c441;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact info and hours use Roboto Flex */
+.contact-info p,
+.contact-info .hours li {
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 400; /* or 500/700 if you want it bolder */
+  font-variation-settings: "wght" 400; /* adjust weight if desired */
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 20px 0;
+}
+
+.contact-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+  margin: 60px auto;
+}
+
+
+.facebook-embed {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.map-container {
+  margin: 40px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-form {
+  text-align: left;
+  background-color: #3f3d3d;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.contact-form h2 {
+  color: #e4c441;
+  text-align: center;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  color: #ccc;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 5px;
+  background-color: #222;
+  color: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid #e4c441;
+}
+
+.btn-send {
+  background-color: #e4c441;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-send:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.contact-details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* ensures it still looks good on smaller screens */
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
+}
+
+.map-container {
+  flex: 1.2;
+  min-width: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 350px;
+}
+
+@media (max-width: 768px) {
+  .contact-details-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    width: 100%;
+  }
+}
+
+.shopify-store-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto 50px auto;
+  max-width: 1200px;
+  width: 90%;
+}
+
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.hero .intro {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero .facebook-embed {
+  flex: 0 0 340px;
+  min-width: 300px;
+  text-align: center;
+}
