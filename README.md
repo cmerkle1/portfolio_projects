@@ -48,6 +48,7 @@ A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the use
 #### Instructions
 To view instructions, click [here](./kids_shopping_app) to see the project specific README file.
 
+
 ### 🪪 [Card Detection Program](./card_detect)
 A Python-based vision application that uses OpenCV (cv2) for image processing and Tesseract OCR for text recognition to identify trading cards. The program detects card edges, applies correction, and extracts text from the top and bottom regions to match against an included dictionary of sports keywords such as team names, positions, and card companies.
 
@@ -104,6 +105,30 @@ A sticky notes board showcasing CRUD. Notes can be created, updated, and deleted
 <h4>Edit Page</h4>
 <img src="./sticky_notes/notes/static/edit.png" alt="Edit Page" width="600">
 </details>
+
+
+### 🎮 [Game Store Website](./tcg-trinity)
+A full-stack website built using Django with graphics created in Canva. The website displays store details, an embedded Facebook widget, an interactable events calendar, and a contact page.
+
+<br>
+<details>
+<summary><strong>📸 Click here to view App Screenshots</strong></summary>
+<br>
+<h4>Main Page View</h4>
+<img src="./tcgitrinity/main.png" alt="Main Page" width="600">
+<br><br>
+<h4>Contact Form</h4>
+<img src="./tcg-trinity/contact.png" alt="Contact Form" width="600">
+<br><br>
+<h4>Events Calendar</h4>
+<img src="./tcg-trinity/calendar.png" alt="Events Calendar" width="600">
+<br><br>
+<h4>Play Details</h4>
+<img src="./tcg-trinity/openplay.png" alt="Open Play Details" width="600">
+</details>
+
+#### Instructions
+To view instructions, click [here](./tcg-trinity) to see the project specific README file.
 
 ### :green_salad: [Restaurant Website](./foodtruck_restaurant_site)
 A restaurant website with access to location, menu, about information, and contact details, built using Django.
