@@ -25,11 +25,6 @@ To view instructions, click [here](./news_application) to see the project specif
 ### 🧸 [Ecommerce App](./kids_shopping_app)
 A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the user to register as a buyer or seller, browse a marketplace and sort by price or seller, leave verified and unverified reviews, and complete checkout with email confirmation.
 
-<details>
-<summary><strong>📸 Click here to view App Screenshots</strong></summary>
-<br>
-<img src="path/to/ecommerce_screenshot.png" alt="Marketplace" width="600">
-</details>
 
 ### 📝 [Sticky Notes CRUD App](./sticky_notes)
 A sticky notes board showcasing CRUD. Notes can be created, updated, and deleted, and appear on a virtual bulletin board.
