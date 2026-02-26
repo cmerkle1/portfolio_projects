@@ -10,8 +10,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
 
-COPY wait-for-it.sh /app/wait-for-it.sh
-RUN chmod +x /app/wait-for-it.sh
+RUN find /app -type f -name "*.sh" -exec sed -i 's/\r$//' {} +
+
+RUN chmod +x /app/*.sh
 
 RUN ls -alh /app
 
