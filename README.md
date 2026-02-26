@@ -20,9 +20,9 @@ A full-stack news app built with Django, MySQL, and Docker. Allows the user to r
 <br>
 <img src="./news_application/static/main.png" alt="Main Page" width="600">
 <br><br>
-<img src="./news_application/static/signup.png alt="Sign-up Form" width="600">
+<img src="./news_application/static/signup.png" alt="Sign-up Form" width="600">
 <br><br>
-<img src="./news_application/static/articleview.png alt="Article View" width="600">
+<img src="./news_application/static/articleview.png" alt="Article View" width="600">
 </details>
 
 ### 🧸 [Ecommerce App](./kids_shopping_app)
