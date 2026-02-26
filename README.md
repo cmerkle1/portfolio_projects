@@ -13,7 +13,6 @@ This project is containerized using Docker. You do not need to install Python or
 
 ### 1. Build and Start the App
 1. Run this command in the project directory:
-```bash
 docker compose up --build
 
 2. Create database tables
