@@ -11,10 +11,13 @@ A full-stack news app built with Django, MySQL, and Docker. Allows the user to r
 <details>
 <summary><strong>📸 Click here to view App Screenshots</strong></summary>
 <br>
+### Main Page View
 <img src="./news_application/static/main.png" alt="Main Page" width="600">
 <br><br>
+### Sign-up Form
 <img src="./news_application/static/signup.png" alt="Sign-up Form" width="600">
 <br><br>
+### Article Details
 <img src="./news_application/static/articleview.png" alt="Article View" width="600">
 </details>
 
@@ -33,8 +36,10 @@ A sticky notes board showcasing CRUD. Notes can be created, updated, and deleted
 <details>
 <summary><strong>📸 Click here to view App Screenshots</strong></summary>
 <br>
+### Main Page View
 <img src="./sticky_notes/notes/static/main.png" alt="Main Page" width="600">
 <br><br>
+### Edit Page
 <img src="./sticky_notes/notes/static/edit.png" alt="Edit Page" width="600">
 </details>
 
