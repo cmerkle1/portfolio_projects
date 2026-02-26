@@ -18,12 +18,11 @@ A full-stack news app built with Django, MySQL, and Docker. Allows the user to r
 <details>
 <summary><strong>📸 Click here to view App Screenshots</strong></summary>
 <br>
-<!-- REPLACE THE PATHS BELOW WITH YOUR ACTUAL IMAGE FILES -->
-<img src="./news_application/static/banner.png" alt="Banner" width="600">
+<img src="./news_application/static/main.png" alt="Main Page" width="600">
 <br><br>
-<img src="path/to/screenshot1.png" alt="Home Page" width="600">
+<img src="./news_application/static/signup.png alt="Sign-up Form" width="600">
 <br><br>
-<img src="path/to/screenshot2.png" alt="Login Page" width="600">
+<img src="./news_application/static/articleview.png alt="Article View" width="600">
 </details>
 
 ### 🧸 [Ecommerce App](./kids_shopping_app)
