@@ -17,7 +17,6 @@ A full-stack news app built with Django, MySQL, and Docker. Allows the user to r
 <br><br>
 <img src="./news_application/static/articleview.png" alt="Article View" width="600">
 </details>
-<br>
 
 #### Instructions
 To view instructions, click the project name above to see the project specific README file.
