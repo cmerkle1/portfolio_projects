@@ -6,16 +6,16 @@ A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the use
 <summary><strong>📸 Click here to view App Screenshots</strong></summary>
 <br>
 <h4>Store View</h4>
-<img src="./kids_shopping_app/staticfiles/shopping_app/storefront.png" alt="Store View" width="600">
+<img src="./staticfiles/shopping_app/storefront.png" alt="Store View" width="600">
 <br><br>
 <h4>Login Form</h4>
-<img src="./kids_shopping_app/staticfiles/shopping_app/login.png" alt="Login Form" width="600">
+<img src="./staticfiles/shopping_app/login.png" alt="Login Form" width="600">
 <br><br>
 <h4>Register Form</h4>
-<img src="./kids_shopping_app/staticfiles/shopping_app/create.png" alt="Create Form" width="600">
+<img src="./staticfiles/shopping_app/create.png" alt="Create Form" width="600">
 <br><br>
 <h4>Item Details</h4>
-<img src="./kids_shopping_app/staticfiles/shopping_app/itemview.png" alt="Item Details Page" width="600">
+<img src="./staticfiles/shopping_app/itemview.png" alt="Item Details Page" width="600">
 </details>
 
 #### Instructions
