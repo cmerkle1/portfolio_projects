@@ -48,6 +48,48 @@ A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the use
 #### Instructions
 To view instructions, click [here](./kids_shopping_app) to see the project specific README file.
 
+### 🧸 [Card Detection Program](./card_detect)
+A Python-based vision application that uses OpenCV (cv2) for image processing and Tesseract OCR for text recognition to identify trading cards. The program detects card edges, applies correction, and extracts text from the top and bottom regions to match against an included dictionary of sports keywords such as team names, positions, and card companies.
+
+<br>
+<details>
+<summary><strong>📸 Click here to view App Screenshots</strong></summary>
+<br>
+<h4>Original Card Image</h4>
+<img src="./card_detect/card.png" alt="Original Card" width="600">
+<br><br>
+<h4>Extracted</h4>
+<img src="./card_detect/card_extracted.png" alt="Extracted Card" width="600">
+<br><br>
+<h4>Detection</h4>
+<img src="./card_detect/detection.png" alt="Detected Card" width="600">
+<br><br>
+<h4>Bottom of the Card</h4>
+<img src="./card_detect/bottom_card.png" alt="Bottom Section" width="600">
+<br><br>
+<h4>Bottom Processed</h4>
+<img src="./card_detect/bottom_processed.png" alt="Bottom Section Processed" width="600">
+<br><br>
+<h4>Top of the Card</h4>
+<img src="./card_detect/top_card.png" alt="Top Section" width="600">
+<br><br>
+<h4>Top Processed</h4>
+<img src="./card_detect/top_processed.png" alt="Top Section Processed" width="600">
+<br><br>
+<h4>Edges</h4>
+<img src="./card_detect/edges.png" alt="Card Edges" width="600">
+<br><br>
+<h4>Full Processed Card</h4>
+<img src="./card_detect/full_processed.png" alt="Full Card Processed" width="600">
+<br><br>
+<h4>Code Output</h4>
+<img src="./card_detect/output.png" alt="Terminal Output" width="600">
+<br><br>
+</details>
+
+#### Instructions
+To view instructions, click [here](./card_detect) to see the project specific README file.
+
 
 ### 📝 [Sticky Notes CRUD App](./sticky_notes)
 A sticky notes board showcasing CRUD. Notes can be created, updated, and deleted, and appear on a virtual bulletin board.
