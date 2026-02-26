@@ -127,8 +127,6 @@ A full-stack website built using Django with graphics created in Canva. The webs
 <img src="./tcg-trinity/openplay.png" alt="Open Play Details" width="600">
 </details>
 
-#### Instructions
-To view instructions, click [here](./tcg-trinity) to see the project specific README file.
 
 ### :green_salad: [Restaurant Website](./foodtruck_restaurant_site)
 A restaurant website with access to location, menu, about information, and contact details, built using Django.
