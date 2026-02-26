@@ -115,7 +115,7 @@ A full-stack website built using Django with graphics created in Canva. The webs
 <summary><strong>📸 Click here to view App Screenshots</strong></summary>
 <br>
 <h4>Main Page View</h4>
-<img src="./tcgitrinity/main.png" alt="Main Page" width="600">
+<img src="./tcg-trinity/main.png" alt="Main Page" width="600">
 <br><br>
 <h4>Contact Form</h4>
 <img src="./tcg-trinity/contact.png" alt="Contact Form" width="600">
