@@ -26,7 +26,7 @@ To view instructions, click [here](./news_application) to see the project specif
 
 
 ### 🧸 [Ecommerce App](./kids_shopping_app)
-A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the user to register as a buyer or seller, browse a marketplace and sort by price or seller, leave verified and unverified reviews, and complete checkout with email confirmation.
+A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the user to register as either a buyer or a seller. A buyer may browse the marketplace and sort by price or by seller, add items to a cart and edit or remove them, place an order and receive an email confirmation, and leave reviews. The buyer can leave a verified review if they have purchased the item, or an unverified review if they have not. Sellers have the ability to list items for sale by adding a photo, title, description, price, and available/unavailable status.
 
 <br>
 <details>
