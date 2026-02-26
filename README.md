@@ -11,10 +11,13 @@ A full-stack news app built with Django, MySQL, and Docker. Allows the user to r
 <details>
 <summary><strong>📸 Click here to view App Screenshots</strong></summary>
 <br>
+<h4>Main Page View</h4>
 <img src="./news_application/static/main.png" alt="Main Page" width="600">
 <br><br>
+<h4>Sign-up Form</h4>
 <img src="./news_application/static/signup.png" alt="Sign-up Form" width="600">
 <br><br>
+<h4>Article Details</h4>
 <img src="./news_application/static/articleview.png" alt="Article View" width="600">
 </details>
 
@@ -28,6 +31,17 @@ A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the use
 
 ### 📝 [Sticky Notes CRUD App](./sticky_notes)
 A sticky notes board showcasing CRUD. Notes can be created, updated, and deleted, and appear on a virtual bulletin board.
+
+<br>
+<details>
+<summary><strong>📸 Click here to view App Screenshots</strong></summary>
+<br>
+<h4>Main Page View</h4>
+<img src="./sticky_notes/notes/static/main.png" alt="Main Page" width="600">
+<br><br>
+<h4>Edit Page</h4>
+<img src="./sticky_notes/notes/static/edit.png" alt="Edit Page" width="600">
+</details>
 
 ### :green_salad: [Restaurant Website](./foodtruck_restaurant_site)
 A restaurant website with access to location, menu, about information, and contact details, built using Django.
