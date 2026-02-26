@@ -19,7 +19,7 @@ A full-stack news app built with Django, MySQL, and Docker. Allows the user to r
 </details>
 
 #### Instructions
-To view instructions, click the project name above to see the project specific README file.
+To view instructions, click [News App](./news_application) to see the project specific README file.
 
 
 ### 🧸 [Ecommerce App](./kids_shopping_app)
