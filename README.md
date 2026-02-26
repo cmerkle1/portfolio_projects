@@ -48,7 +48,7 @@ A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the use
 #### Instructions
 To view instructions, click [here](./kids_shopping_app) to see the project specific README file.
 
-### 🧸 [Card Detection Program](./card_detect)
+### 🪪 [Card Detection Program](./card_detect)
 A Python-based vision application that uses OpenCV (cv2) for image processing and Tesseract OCR for text recognition to identify trading cards. The program detects card edges, applies correction, and extracts text from the top and bottom regions to match against an included dictionary of sports keywords such as team names, positions, and card companies.
 
 <br>
@@ -59,7 +59,7 @@ A Python-based vision application that uses OpenCV (cv2) for image processing an
 <img src="./card_detect/card.png" alt="Original Card" width="600">
 <br><br>
 <h4>Extracted</h4>
-<img src="./card_detect/card_extracted.png" alt="Extracted Card" width="600">
+<img src="./card_detect/card_extracted.jpg" alt="Extracted Card" width="600">
 <br><br>
 <h4>Detection</h4>
 <img src="./card_detect/detection.png" alt="Detected Card" width="600">
