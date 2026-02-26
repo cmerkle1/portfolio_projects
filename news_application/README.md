@@ -1,39 +1,36 @@
-<<<<<<< HEAD
-# consolidation
+### 🗞️ [News App](./news_application)
+A full-stack news app built with Django, MySQL, and Docker. Allows the user to register as a journalist, reader, or editor. Journalists can create, edit, and delete articles and newsletters. Editors can edit, approve, or delete articles written by journalists. Once approved, journalist articles appear on the main page and can be subscribed to by readers. If a reader is subscribed to a journalist, they will receive an email when their journalist publishes a newsletter.
 
-project_name = "IndieGo News App"
-dockerhub_url = "https://hub.docker.com/r/cmerkle1/capstone"
+<br>
+<details>
+<summary><strong>📸 Click here to view App Screenshots</strong></summary>
+<br>
+<img src="./news_application/static/main.png" alt="Main Page" width="600">
+<br><br>
+<img src="./news_application/static/signup.png" alt="Sign-up Form" width="600">
+<br><br>
+<img src="./news_application/static/articleview.png" alt="Article View" width="600">
+</details>
+<br>
 
-## Overview
+#### Instructions
+This project is containerized using Docker. You do not need to install Python or MySQL locally to run it.
 
-A Django-based news publishing platform with support for:
-- Custom user roles (reader, journalist, editor)
-- Article approval workflow
-- Subscriptions to publishers or journalists
-- REST API with session authentication
-- Docker and venv support
+1. **Navigate to the project folder:**
+   ```bash
+   cd news_application
 
-## Setup (venv)
+2. **Build and Start the App:**
+   ```bash
+   docker compose up --build
 
-```bash
-python -m venv env
-source env/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-=======
-#  My Portfolio
+3. **Set up the Database (New Terminal):**
+   ```bash
+   docker exec -it news-app-container python manage.py migrate
 
-A collection of projects showcasing full-stack development skills.
+4. **Create an Admin User:**
+   ```bash
+   docker exec -it news-app-container python manage.py createsuperuser
 
-## Projects
-
-### 🧸 [Ecommerce App](./kids-shopping-app)
-A full-stack e-commerce app built with Django, MySQL, and Docker.
-
-### 📝 [Sticky Notes CRUD App](./sticky_notes)
-A sticky notes board showcasing CRUD.
-
-### :green_salad: [Restaurant Website](./foodtruck)
-A restaurant website with access to location, menu, about information, and contact details, built using Django.
->>>>>>> 3d27c511b319fe8447dd6610f3ae9c837c5fa182
+5. **View the App:**
+   Navigate to http://localhost:8000
