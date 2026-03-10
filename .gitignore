@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+card_tracker.db
+venv/
+.env/
