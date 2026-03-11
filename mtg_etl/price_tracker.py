@@ -8,7 +8,9 @@ import pandas as pd
 import sys
 import os
 
-sys.path.append(os.path.dirname(__file__))
+# Add the directory of this script to sys.path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from update_prices import fetch_card_price, insert_price_record
 
 
