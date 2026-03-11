@@ -5,6 +5,10 @@ import requests
 import sqlite3
 import datetime
 import pandas as pd
+import sys
+import os
+
+sys.path.append(os.path.dirname(__file__))
 from update_prices import fetch_card_price, insert_price_record
 
 
