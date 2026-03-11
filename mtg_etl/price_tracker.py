@@ -5,7 +5,7 @@ import requests
 import sqlite3
 import datetime
 import pandas as pd
-from mtg_etl.update_prices import fetch_card_price, insert_price_record
+from update_prices import fetch_card_price, insert_price_record
 
 
 # Search Scryfall for Card (avoid rate limits)
