@@ -5,9 +5,11 @@ import requests
 import sqlite3
 import datetime
 import pandas as pd
+from update_prices import fetch_card_price, insert_price_record
 
 
-# Search Scryfall for Card
+# Search Scryfall for Card (avoid rate limits)
+@st.cache_data(ttl=3600)
 def search_scryfall(card_name):
     url = "https://api.scryfall.com/cards/search"
 
@@ -304,7 +306,11 @@ if st.session_state.search_results:
                             ).isoformat()
 
                         save_tracked_cards(card, tracking_end_date, finish)
-                        st.success("Card saved successfully.")
+                        usd_price, eur_price = fetch_card_price(card["id"], finish)
+
+                        if usd_price is not None:
+                            insert_price_record(card["id"], finish, usd_price, eur_price)
+                        st.success("Card saved successfully and price recorded.")
 
                 st.markdown("---")
 
