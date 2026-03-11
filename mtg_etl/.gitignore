@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 __pycache__/
 *.pyc
 card_tracker.db
 venv/
 .env/
+=======
+__pycache__/
+*.pyc
+card_tracker.db
+venv/
+.env/
+>>>>>>> 00eadfcc2efca7dbc8d5ba472dcfdd8c1fc035b7
