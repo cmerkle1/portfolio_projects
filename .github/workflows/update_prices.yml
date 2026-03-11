@@ -1,5 +1,7 @@
 name: Update Card Prices
 
+permissions:
+  contents: write
 on:
   schedule:
     - cron: "0 12 * * *"  # runs daily at 12:00 UTC
