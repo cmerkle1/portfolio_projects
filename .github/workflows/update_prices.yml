@@ -28,7 +28,7 @@ jobs:
 
       - name: Run price update
         run: |
-          python update_prices.py
+          python mtg_etl/update_prices.py
 
       - name: Commit updated database
         run: |
