@@ -11,7 +11,7 @@ A collection of projects showcasing full-stack development skills.
 * [Game Store Website](#game-store-website)
 * [Restaurant Website](#restaurant-website)
 
-### :flower_playing_cards: [Magic Card Price Tracker](./mtg_etl)
+### [Magic Card Price Tracker](./mtg_etl)
 A streamlit app developed with Python that allows the user to track prices for cards they select. The card data is accessed through Scryfall's API and saved cards are stored in a database. The prices are automatically updated each day at 12 UTC and plotted on a chart. Pricing is shown in USD for both TCGplayer and Cardmarket. The user can sort their saved cards by price, ascending or descending. Searching for a card shows the card image, set, name, and current price. The user may select either foil or non-foil (when available) and can select a time frame for which to track the card, with options including 7 days, 30 days, or indefinitely. Cards can be deleted from the database at any time to remove them from the list. 
 
 <br>
@@ -34,7 +34,7 @@ A streamlit app developed with Python that allows the user to track prices for c
 #### Instructions
 The app has been published courtesy of Streamlit and Github and is available [here](https://magic-price-track.streamlit.app/).
 
-### 🗞️ [News App](./news_application)
+### [News App](./news_application)
 A full-stack news app built with Django, MySQL, and Docker. Allows the user to register as a journalist, reader, or editor. Journalists can create, edit, and delete articles and newsletters. Editors can edit, approve, or delete articles written by journalists. Once approved, journalist articles appear on the main page and can be subscribed to by readers. If a reader is subscribed to a journalist, they will receive an email when their journalist publishes a newsletter.
 
 <br>
@@ -55,7 +55,7 @@ A full-stack news app built with Django, MySQL, and Docker. Allows the user to r
 To view instructions, click [here](./news_application) to see the project specific README file.
 
 
-### 🧸 [Ecommerce App](./kids_shopping_app)
+### [Ecommerce App](./kids_shopping_app)
 A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the user to register as either a buyer or a seller. A buyer may browse the marketplace and sort by price or by seller, add items to a cart and edit or remove them, place an order and receive an email confirmation, and leave reviews. The buyer can leave a verified review if they have purchased the item, or an unverified review if they have not. Sellers have the ability to list items for sale by adding a photo, title, description, price, and available/unavailable status.
 
 <br>
@@ -79,7 +79,7 @@ A full-stack e-commerce app built with Django, MySQL, and Docker. Allows the use
 To view instructions, click [here](./kids_shopping_app) to see the project specific README file.
 
 
-### 🪪 [Card Detection Program](./card_detect)
+### [Card Detection Program](./card_detect)
 A Python-based vision application that uses OpenCV (cv2) for image processing and Tesseract OCR for text recognition to identify trading cards. The program detects card edges, applies correction, and extracts text from the top and bottom regions to match against an included dictionary of sports keywords such as team names, positions, and card companies.
 
 <br>
@@ -122,7 +122,7 @@ A Python-based vision application that uses OpenCV (cv2) for image processing an
 To view instructions, click [here](./card_detect) to see the project specific README file.
 
 
-### 📋 [Sticky Notes CRUD App](./sticky_notes)
+### [Sticky Notes CRUD App](./sticky_notes)
 A sticky notes board showcasing CRUD. Notes can be created, updated, and deleted, and appear on a virtual bulletin board.
 
 <br>
@@ -137,7 +137,7 @@ A sticky notes board showcasing CRUD. Notes can be created, updated, and deleted
 </details>
 
 
-### 🎮 [Game Store Website](./tcg-trinity)
+### [Game Store Website](./tcg-trinity)
 A full-stack website built using Django with graphics created in Canva. The website displays store details, an embedded Facebook widget, an interactable events calendar, and a contact page.
 
 <br>
@@ -158,5 +158,5 @@ A full-stack website built using Django with graphics created in Canva. The webs
 </details>
 
 
-### :green_salad: [Restaurant Website](./foodtruck_restaurant_site)
+### [Restaurant Website](./foodtruck_restaurant_site)
 A restaurant website with access to location, menu, about information, and contact details, built using Django.
