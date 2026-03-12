@@ -12,7 +12,7 @@ A streamlit app developed with Python that allows the user to track prices for c
 <summary><strong>📸 Click here to view App Screenshots</strong></summary>
 <br>
 <h4>Main Page View</h4>
-<img src="./mtg_etl/main.png" alt="Main Page" width="600">
+<img src="./mtg_etl/front.png" alt="Main Page" width="600">
 <br><br>
 <h4>Search View</h4>
 <img src="./mtg_etl/search.png" alt="Search Form" width="600">
@@ -25,7 +25,7 @@ A streamlit app developed with Python that allows the user to track prices for c
 </details>
 
 #### Instructions
-To view instructions, click [here](./news_application) to see the project specific README file.
+The app has been published courtesy of Streamlit and Github and is available [here](https://magic-price-track.streamlit.app/).
 
 ### 🗞️ [News App](./news_application)
 A full-stack news app built with Django, MySQL, and Docker. Allows the user to register as a journalist, reader, or editor. Journalists can create, edit, and delete articles and newsletters. Editors can edit, approve, or delete articles written by journalists. Once approved, journalist articles appear on the main page and can be subscribed to by readers. If a reader is subscribed to a journalist, they will receive an email when their journalist publishes a newsletter.
