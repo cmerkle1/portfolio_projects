@@ -3,13 +3,13 @@
 A collection of projects showcasing full-stack development skills.
 
 ## Projects
-* [Magic Card Price Tracker](###magic-card-price-tracker)
-* [News App](###news-app)
-* [Ecommerce App](###ecommerce-app)
-* [Card Detection Program](###card-detection-program)
-* [Sticky Notes CRUD App](###sticky-notes-crud-app)
-* [Game Store Website](###game-store-website)
-* [Restaurant Website](###restaurant-website)
+* [Magic Card Price Tracker](#magic-card-price-tracker)
+* [News App](#news-app)
+* [Ecommerce App](#ecommerce-app)
+* [Card Detection Program](#card-detection-program)
+* [Sticky Notes CRUD App](#sticky-notes-crud-app)
+* [Game Store Website](#game-store-website)
+* [Restaurant Website](#restaurant-website)
 
 ### :flower_playing_cards: [Magic Card Price Tracker](./mtg_etl)
 A streamlit app developed with Python that allows the user to track prices for cards they select. The card data is accessed through Scryfall's API and saved cards are stored in a database. The prices are automatically updated each day at 12 UTC and plotted on a chart. Pricing is shown in USD for both TCGplayer and Cardmarket. The user can sort their saved cards by price, ascending or descending. Searching for a card shows the card image, set, name, and current price. The user may select either foil or non-foil (when available) and can select a time frame for which to track the card, with options including 7 days, 30 days, or indefinitely. Cards can be deleted from the database at any time to remove them from the list. 
