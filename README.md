@@ -4,6 +4,7 @@ A collection of projects showcasing full-stack development skills.
 
 ## Projects
 * [Magic Card Price Tracker](#magic-card-price-tracker)
+* [FFTCG API](#fftcg-api)
 * [News App](#news-app)
 * [Ecommerce App](#ecommerce-app)
 * [Card Detection Program](#card-detection-program)
@@ -33,6 +34,43 @@ A streamlit app developed with Python that allows the user to track prices for c
 
 #### Instructions
 The app has been published courtesy of Streamlit and Github and is available [here](https://magic-price-track.streamlit.app/).
+
+### [FFtcg API](./mtg_etl)
+A RESTful API serving more than 1,800 FFTCG card records using Python and FastAPI. PostgreSQL is implemented for data modeling and queries with Alembic used for database migrations. The project is containerized with Docker and hosted by Railway, available [here](https://fftcg-api-production.up.railway.app/docs#/).
+
+<br>
+<details>
+<summary><strong>📸 Click here to view App Screenshots</strong></summary>
+<br>
+<h4>Main Page View</h4>
+<img src="./photos/ff_main.png" alt="Main Page" width="600">
+<br><br>
+<h4>Search View</h4>
+<img src="./photos/ff_search.png" alt="Search Form" width="600">
+<br><br>
+<h4>Search Results</h4>
+<img src="./photos/ff_search.png" alt="Results" width="600">
+</details>
+
+#### Instructions
+
+|Method   |Endpoint   | Description   |
+|---|---|---|
+|GET   |api/cards   |Get all cards   |
+|GET   |api/cards/{id}   |Get card by ID   |
+|GET   |api/cards/collector/{number}   |Get cards by collector number   |
+|GET|api/cards/search?name={name}|Search cards by name|
+|GET|api/cards/element/{element}|Filter by element|
+|GET|api/cards/type/{type}|Filter by card type|
+|GET|api/cards/category/{category}|Filter by category|
+
+##### Reference
+- ID: The card's position within the database (ie: 130)
+- Number: The card's collector number, including  (ie: 6-007R, case sensitive)
+- Name: The card's name/title (ie: Cornelia)
+- Element: The card's element, indicated by crystal color (ie: Water)
+- Type: The card's type, listed middle left (ie: Forward)
+- Category: The card's category, or the game of origin (ie: VIII)
 
 ### [News App](./news_application)
 A full-stack news app built with Django, MySQL, and Docker. Allows the user to register as a journalist, reader, or editor. Journalists can create, edit, and delete articles and newsletters. Editors can edit, approve, or delete articles written by journalists. Once approved, journalist articles appear on the main page and can be subscribed to by readers. If a reader is subscribed to a journalist, they will receive an email when their journalist publishes a newsletter.
